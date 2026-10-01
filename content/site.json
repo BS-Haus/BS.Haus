@@ -1,0 +1,225 @@
+{
+  "name": "BS.Haus",
+  "legal_name": "BS.Haus",
+  "url": "https://bs.haus",
+  "tagline": "Creative Venture Studio, London",
+  "description": "BS.Haus is a London creative venture studio partnering with founders and leaders to build and design 0→1 brands, digital products and experiences across fashion, art, technology and contemporary culture.",
+  "keywords": [
+    "Brand identity",
+    "Product design",
+    "Web design",
+    "Creative direction",
+    "Art direction",
+    "Campaigns",
+    "3D",
+    "Web3",
+    "AI"
+  ],
+  "email": "howdy@bs.haus",
+  "booking": "https://calendly.com/howdy-7cgx/book-a-slot",
+  "instagram": "https://www.instagram.com/bs.haus/",
+  "city": "London, UK",
+  "founded": 2022,
+  "company_number": "13955804",
+  "address": {
+    "street": "Unit 2, 76 Mandarin Wharf",
+    "locality": "Haggerston",
+    "city": "London",
+    "postcode": "N1 5SB"
+  },
+  "og_image": "/media/studio/og.jpg",
+  "founders": [
+    {
+      "name": "Ben Laing",
+      "role": "Co-founder · Creative & Product Direction"
+    },
+    {
+      "name": "Sarah Stoutamire",
+      "role": "Co-founder · Creative & Brand Direction"
+    }
+  ],
+  "intro": "𝕭𝕾.Haus is a creative venture studio, based in London, that partners with founders & leaders to build & design 0→1 experiences across fashion, art, technology and contemporary culture.",
+  "intro_2": "Run by Ben Laing & Sarah Stoutamire — a husband and wife creative duo with over a decade of experience collaborating with start-ups and enterprise organisations.",
+  "about": [
+    "𝕭𝕾.Haus is a creative venture studio based in Haggerston, London. We partner with founders and leaders to build and design 0→1 experiences across fashion, art, technology and contemporary culture.",
+    "The studio is run by Ben Laing and Sarah Stoutamire (𝕭𝕾), a husband and wife creative duo with over a decade of industry experience, collaborating with both start-up and enterprise-level organisations — from early-stage Web3 platforms to global brands like IKEA, Figma, Decathlon and Zalando.",
+    "We combine editorial-focused creative direction with systems and stories to build powerful, immersive brand worlds — and we stay with our partners from first idea to MVP and beyond."
+  ],
+  "exploring": "Alongside client work, the studio explores emerging art, technology and design — spatial computing, AI and blockchain — and how they can shape the next generation of brands and products.",
+  "services_intro": "We combine editorial focused creative direction with systems and stories to build powerful, immersive brand worlds.",
+  "services": [
+    {
+      "title": "Strategy",
+      "description": "Helping our clients identify and articulate their distinct perspectives and promises — and earn a valuable place in the lives of their customers.",
+      "detail": [
+        "Every project starts with clarity. We work alongside founders and leadership teams to define what a brand stands for, who it serves and how it should sound — before a single pixel is pushed.",
+        "From naming a new venture to designing a new category, our strategy work gives teams a shared story they can build on."
+      ],
+      "capabilities": [
+        "Brand Platforms",
+        "Name Creation",
+        "Category Design",
+        "Verbal Identity",
+        "Copywriting"
+      ]
+    },
+    {
+      "title": "Design",
+      "description": "Creating the visuals and systems that signal clear and compelling relevance, for internal teams and external audiences, at scale.",
+      "detail": [
+        "We design identities and brand systems that are distinctive on day one and flexible enough to scale — across social, storefront, packaging, product and print.",
+        "Our creative sprints get new ideas from concept to tangible design fast, with 3D, illustration and art direction built in."
+      ],
+      "capabilities": [
+        "Visual Identity",
+        "Brand System",
+        "Creative Sprint",
+        "3D & Illustration",
+        "Print & Physical"
+      ]
+    },
+    {
+      "title": "Experience",
+      "description": "Deploying creative strategies and activations, that users interact with in the real world, to shape exceptional experiences.",
+      "detail": [
+        "Brands live in the moments people interact with them. We design the campaigns, websites, films and spaces that make those moments land.",
+        "From launch campaigns to festival activations and environmental design, we shape experiences people remember."
+      ],
+      "capabilities": [
+        "Campaign",
+        "Web Design",
+        "Photo & Video",
+        "Environmental",
+        "Motion Design"
+      ]
+    },
+    {
+      "title": "Technology",
+      "description": "Building and enhancing tech stacks to elevate digital experiences, up-level productivity, and develop competitive advantages.",
+      "detail": [
+        "We design and build digital products — from marketplaces and Web3 platforms to content-managed websites — and help teams adopt new tools that give them an edge.",
+        "That includes AI ideation, mixed reality prototypes and custom brand tools that keep teams creating on-brand at speed."
+      ],
+      "capabilities": [
+        "Web Development",
+        "AI Ideation",
+        "CMS Development",
+        "Mixed Reality",
+        "Brand Tools"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "phase": "Discover",
+      "title": "Understand",
+      "text": "We begin by challenging assumptions and immersing ourselves in the context. Through research and observation, we uncover the deeper, often unspoken problems."
+    },
+    {
+      "phase": "Define",
+      "title": "Focus",
+      "text": "We synthesise insights and reframe the brief with strategic clarity. This ensures we’re solving the right problem — not just responding to a request."
+    },
+    {
+      "phase": "Develop",
+      "title": "Explore",
+      "text": "We explore multiple directions, pressure-test ideas, and refine collaboratively. The goal is to push creative boundaries while staying grounded in purpose."
+    },
+    {
+      "phase": "Deliver",
+      "title": "Refine",
+      "text": "We execute with precision and intent, translating strategy into tangible outcomes. Every detail is considered to ensure the work lands with lasting impact."
+    }
+  ],
+  "marquee": [
+    "Brand",
+    "Product",
+    "Web",
+    "Campaign",
+    "3D & Motion",
+    "Experience",
+    "AI",
+    "Web3"
+  ],
+  "clients": [
+    {
+      "name": "IKEA",
+      "logo": "ikea.png"
+    },
+    {
+      "name": "Figma",
+      "logo": "figma.png"
+    },
+    {
+      "name": "Decathlon",
+      "logo": "decathlon.png"
+    },
+    {
+      "name": "Glaze",
+      "logo": "glaze.svg"
+    },
+    {
+      "name": "Blockchain Capital",
+      "logo": "blockchain-capital.svg"
+    },
+    {
+      "name": "LISA",
+      "logo": "lisa.svg"
+    },
+    {
+      "name": "Zalando",
+      "logo": "zalando.png"
+    },
+    {
+      "name": "amika",
+      "logo": "amika.svg"
+    }
+  ],
+  "archive": [
+    {
+      "src": "archive/01.jpg",
+      "title": "Her Own",
+      "type": "Packaging & 3D"
+    },
+    {
+      "src": "archive/02.jpg",
+      "title": "Myco",
+      "type": "Brand & 3D"
+    },
+    {
+      "src": "archive/03.jpg",
+      "title": "Elizabeth Shevelev",
+      "type": "NYFW 2024 presentation"
+    },
+    {
+      "src": "archive/04.jpg",
+      "title": "Elixir",
+      "type": "Launch campaign"
+    },
+    {
+      "src": "archive/05.jpg",
+      "title": "Club Égalité",
+      "type": "Event identity"
+    },
+    {
+      "src": "archive/06.jpg",
+      "title": "Stone Island",
+      "type": "Digital"
+    },
+    {
+      "src": "archive/07.jpg",
+      "title": "Benetton",
+      "type": "E-commerce"
+    },
+    {
+      "src": "archive/08.jpg",
+      "title": "Her Own",
+      "type": "Product world"
+    },
+    {
+      "src": "archive/09.jpg",
+      "title": "Glaze",
+      "type": "Brand guidelines"
+    }
+  ]
+}
