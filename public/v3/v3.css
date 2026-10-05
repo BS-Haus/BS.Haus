@@ -420,3 +420,13 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .v3-on .os-window.is-docked { z-index: 65; }
 .v3-on .os-window.is-mini:hover { filter: brightness(1.2); }
 @media (max-width: 760px) { .dock-win { height: 40px; } }
+
+/* client ticker: drifts left → right, fading at both edges */
+.logos { display: block; overflow: hidden; opacity: 1; -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); }
+.logos-track { display: flex; width: max-content; animation: logos-ltr 36s linear infinite; }
+.logos-run { display: flex; align-items: center; gap: clamp(40px, 6vw, 88px); padding-right: clamp(40px, 6vw, 88px); }
+.logos-run img { height: 22px; width: auto; opacity: 0.72; flex: none; }
+.logos:hover .logos-track { animation-play-state: paused; }
+@keyframes logos-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .logos-track { animation: none; } }
+.doc > article > * { min-width: 0; }

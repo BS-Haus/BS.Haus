@@ -93,7 +93,10 @@ def page_v3(SITE, PROJECTS, URL, version):
         f'<li><button type="button" class="dock-app" data-open="{p["slug"]}" data-label="{e(p["short_title"])}"><img src="{media(p["cover"])}" alt="{e(p["title"])}"></button></li>'
         for p in PROJECTS
     )
-    logos = "".join(f'<img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy">' for c in SITE["clients"])
+    logo_set = "".join(f'<img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy">' for c in SITE["clients"])
+    logo_dupe = "".join(f'<img src="/media/clients/{c["logo"]}" alt="" loading="lazy">' for c in SITE["clients"])
+    # two identical runs so the ticker loops seamlessly; the copy is hidden from assistive tech
+    logos = f'<div class="logos-track"><div class="logos-run">{logo_set}</div><div class="logos-run" aria-hidden="true">{logo_dupe}</div></div>'
     help_rows = "".join(
         f'<li><a href="/work/{h["slug"]}" data-open="{h["slug"]}"><b>{e(h["name"])}</b><span>{e(h["line"])}</span><i aria-hidden="true">↗</i></a></li>'
         for h in SITE["help"]
