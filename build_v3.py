@@ -162,7 +162,7 @@ def page_v3(SITE, PROJECTS, URL, version):
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{URL}/">
 <meta name="theme-color" content="#1b1a19">
-<meta property="og:title" content="BS.Haus — Creative Venture Studio, London">
+<meta property="og:title" content="BS.Haus — Creative Studio, London">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{URL}{SITE['og_image']}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">

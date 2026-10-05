@@ -118,7 +118,7 @@ def meta_row(right=None):
     return f"""<div class="meta-row">
   <span>BS.HAUS</span>
   <em class="serif" aria-hidden="true">BS</em>
-  <span>A Creative<br>Venture Studio</span>
+  <span>A Creative<br>Studio</span>
   <span>{e(SITE['city'])}<br>Est. {SITE['founded']}</span>
   <span>{right or f'©{year}'}</span>
 </div>"""
@@ -278,7 +278,7 @@ def page_home():
   <div class="hero-top">{meta_row()}</div>
   <div class="hero-bottom">
     <div class="hero-caption">
-      <h1>{e(SITE['name'])} is a London creative venture studio designing brands, digital products and experiences from 0→1.</h1>
+      <h1>{e(SITE['name'])} is a London creative studio designing brands, digital products and experiences from 0→1.</h1>
       <div class="reel-index">{index}</div>
     </div>
     <p class="display wordmark" aria-hidden="true">BS.HAUS</p>
@@ -493,7 +493,7 @@ def page_studio():
     )
     out = head(
         "Studio — About Us",
-        f"{SITE['name']} is a creative venture studio in London run by Ben Laing and Sarah Stoutamire, partnering with founders and leaders across fashion, art, technology and culture.",
+        f"{SITE['name']} is a creative studio in London run by Ben Laing and Sarah Stoutamire, partnering with founders and leaders across fashion, art, technology and culture.",
         "/studio",
     )
     out += nav("/studio")

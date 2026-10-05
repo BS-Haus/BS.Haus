@@ -79,7 +79,7 @@ def page_v2(SITE, PROJECTS, URL, version):
     ]
     metas = [
         f"""<div class="meta is-on" data-index="0">
-  <span>BS.Haus</span><span>Creative venture studio</span><span>London, UK</span><span>Showreel ’{str(date.today().year)[2:]}</span>
+  <span>BS.Haus</span><span>Creative studio</span><span>London, UK</span><span>Showreel ’{str(date.today().year)[2:]}</span>
 </div>"""
     ] + [
         f"""<div class="meta" data-index="{i}">
@@ -131,7 +131,7 @@ def page_v2(SITE, PROJECTS, URL, version):
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{URL}/">
 <meta name="theme-color" content="#0a0a0a">
-<meta property="og:title" content="BS.Haus — Creative Venture Studio, London">
+<meta property="og:title" content="BS.Haus — Creative Studio, London">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{URL}{SITE['og_image']}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -147,7 +147,7 @@ def page_v2(SITE, PROJECTS, URL, version):
 <body>
 
 <div class="loader" aria-hidden="true">
-  <div class="loader-row"><span>BS.Haus</span><span>Creative venture studio</span></div>
+  <div class="loader-row"><span>BS.Haus</span><span>Creative studio</span></div>
   <div class="loader-window">{loader_frames}</div>
   <div class="loader-row"><span>London, UK</span><span class="loader-count">000</span></div>
 </div>
