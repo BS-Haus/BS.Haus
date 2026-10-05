@@ -267,6 +267,8 @@ def page_v3(SITE, PROJECTS, URL, version):
     <li><button type="button" class="dock-app app-work" data-view="work" data-label="Work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg></button></li>
     <li><button type="button" class="dock-app app-services" data-view="services" data-label="Services"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v19M2.5 12h19M5.3 5.3l13.4 13.4M18.7 5.3 5.3 18.7"/></svg></button></li>
     <li><button type="button" class="dock-app app-contact" data-view="contact" data-label="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></button></li>
+    <li class="dock-sep dock-win-sep" aria-hidden="true"></li>
+    <li class="dock-win" aria-hidden="true"></li>
   </ul>
   <p class="dock-tip" aria-hidden="true"></p>
 </nav>

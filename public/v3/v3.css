@@ -412,3 +412,11 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
   .bg-layer, .view, .doc > article { transition: none !important; }
   .mb-avail i, .scroll-cue::after { animation: none; }
 }
+
+/* slot the minimised window docks into */
+.dock-win { width: 0; height: 48px; flex: none; }
+.dock-win-sep { opacity: 0; transition: opacity 0.3s; }
+.dock.has-win .dock-win-sep { opacity: 1; }
+.v3-on .os-window.is-docked { z-index: 65; }
+.v3-on .os-window.is-mini:hover { filter: brightness(1.2); }
+@media (max-width: 760px) { .dock-win { height: 40px; } }

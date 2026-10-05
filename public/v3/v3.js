@@ -274,27 +274,35 @@
   // ------------------------------------------------------------ window geometry: open ⇄ minimised (scroll-scrubbed)
   let M = 0; // 0 = open, 1 = minimised
   let ox = 0, oy = 0; // drag offset
+  const slot = $(".dock-win");
+  const dockEl = $(".dock");
   const place = () => {
     const vw = innerWidth, vh = innerHeight;
     const w = win.offsetWidth, h = win.offsetHeight;
     const cy = MENUBAR + (vh - MENUBAR - 96) / 2;
     const m = M < 0.5 ? 4 * M * M * M : 1 - Math.pow(-2 * M + 2, 3) / 2;
-    const mini = clamp((vw < 760 ? 150 : 250) / w, 0.14, 0.32);
-    const tx = (vw < 760 ? 10 : 18) - (vw / 2 - w / 2);
-    const ty = vh - (vw < 760 ? 86 : 100) - (cy + h / 2);
+    // the dock opens a slot for the window, sized to the window's aspect
+    const tileW = vw < 760 ? 52 : 64;
+    slot.style.width = `${(tileW * clamp(M * 1.6, 0, 1)).toFixed(1)}px`;
+    dockEl.classList.toggle("has-win", M > 0.05);
+    const s = slot.getBoundingClientRect();
+    const tx = s.left + s.width / 2 - vw / 2;
+    const ty = s.top + s.height / 2 - cy;
+    const genie = Math.sin(m * Math.PI);
     gsap.set(win, {
       top: cy,
       xPercent: -50,
       yPercent: -50,
-      transformOrigin: "0% 100%",
+      transformOrigin: "50% 50%",
       x: lerp(ox, tx, m),
       y: lerp(oy, ty, m),
-      scale: lerp(1, mini, m),
-      skewX: Math.sin(m * Math.PI) * -4,
-      rotationX: Math.sin(m * Math.PI) * 8,
-      transformPerspective: 1400,
+      scale: lerp(1, tileW / w, m),
+      skewX: genie * -5,
+      rotationX: genie * 14,
+      transformPerspective: 1200,
     });
     win.classList.toggle("is-mini", M > 0.6);
+    win.classList.toggle("is-docked", M > 0.45);
     cue.style.opacity = clamp(1 - M * 5, 0, 1);
     dim.style.opacity = 0.12 + 0.38 * clamp((scrollY() - spacer.offsetHeight * 0.6) / (innerHeight * 0.6), 0, 1);
   };
