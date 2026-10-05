@@ -626,3 +626,8 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .v-statement { max-width: 40ch; }
 @media (min-width: 900px) { .v-statement { max-width: 40ch; } }
 .about-logos { margin-top: 30px; }
+
+/* boot mark: smaller */
+.boot-logo { width: min(190px, 42vw); }
+.boot-bar { width: 120px; }
+.v3-js .boot { gap: 26px; }
