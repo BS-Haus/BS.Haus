@@ -103,10 +103,6 @@
     ],
     "gallery": [
       {
-        "src": "work/erria/01.jpg",
-        "full": true
-      },
-      {
         "src": "work/erria/02.jpg",
         "full": false
       },
@@ -341,10 +337,6 @@
       },
       {
         "src": "work/figma-slides-infinite-scroll/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/figma-slides-infinite-scroll/03.jpg",
         "full": false
       },
       {
