@@ -73,7 +73,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
   backdrop-filter: blur(24px) saturate(180%);
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 }
-.mb-mark { font-size: 17px; line-height: 1; padding: 0 4px 2px; }
+.mb-mark { line-height: 1; }
 .mb-menu { display: flex; gap: 2px; }
 .mb-menu button { padding: 3px 9px; border-radius: 5px; }
 .mb-menu button:hover, .mb-menu button.is-on { background: rgba(255, 255, 255, 0.14); }
@@ -525,6 +525,8 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 
 /* company logo: the blackletter BS lockup (navigation only; body copy keeps the serif) */
 .logo-bs { font-family: "UnifrakturMaguntia", var(--font-serif); font-style: normal; font-weight: 400; letter-spacing: 0; line-height: 1; }
-.mb-mark .logo-bs { font-size: 19px; display: block; padding-top: 1px; }
-.app-studio .logo-bs { font-size: 25px; padding-bottom: 2px; }
-@media (max-width: 760px) { .app-studio .logo-bs { font-size: 21px; } }
+/* UnifrakturMaguntia sits high in its em box, so nudge it down to optical centre */
+.mb-mark { display: inline-flex; align-items: center; height: 100%; padding: 0 4px; }
+.mb-mark .logo-bs { display: block; font-size: 16px; transform: translateY(1.5px); }
+.app-studio .logo-bs { display: block; font-size: 19px; transform: translateY(2px); }
+@media (max-width: 760px) { .app-studio .logo-bs { font-size: 16px; } }
