@@ -225,14 +225,6 @@ def clients_grid():
     return f'<div class="clients reveal">{cells}</div>'
 
 
-def archive_grid():
-    return "".join(
-        f'<figure class="reveal"><img src="{media_url(a["src"])}" alt="{e(a["title"])} — {e(a["type"])}" loading="lazy" decoding="async">'
-        f'<figcaption><span>{e(a["title"])}</span><span>{e(a["type"])}</span></figcaption></figure>'
-        for a in SITE["archive"]
-    )
-
-
 def marquee():
     words = SITE["marquee"]
     spans = "".join(
@@ -347,10 +339,6 @@ def page_work():
   <div class="work-grid">
 {chr(10).join(cards)}
   </div>
-</section>
-<section class="section wrap" aria-labelledby="archive-h">
-  <div class="section-head reveal"><h2 id="archive-h" class="display">Archive</h2><span class="count">({len(SITE['archive']):02d})</span></div>
-  <div class="archive">{archive_grid()}</div>
 </section>
 </main>
 """

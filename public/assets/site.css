@@ -556,14 +556,6 @@ a.contact-row:hover .v { color: var(--muted); }
   .work-card .media { transition: none; }
 }
 
-/* ---------- archive ---------- */
-.archive { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(8px, 1vw, 16px); }
-.archive figure { margin: 0; }
-.archive img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); background: var(--panel); }
-.archive figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; font-size: 13px; }
-.archive figcaption span + span { color: var(--muted); text-align: right; }
-@media (max-width: 860px) { .archive { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .archive { grid-template-columns: 1fr; } }
 
 .founders-photo { width: 100%; max-width: 560px; height: auto; aspect-ratio: 1090 / 1020; object-fit: cover; border-radius: var(--radius); }
 

@@ -472,69 +472,6 @@
     ]
   },
   {
-    "slug": "sanctuary",
-    "title": "Relations — Sanctuary",
-    "short_title": "Sanctuary",
-    "client": "Relations",
-    "year": "2026",
-    "industry": "Music",
-    "services": "Creative Concept, Album Artwork, Typography, Single Covers, Visualisers",
-    "tags": [
-      "Artwork",
-      "Concept",
-      "Music"
-    ],
-    "featured": false,
-    "summary": "The anti-algo album — artwork for Relations’ first record in over a decade.",
-    "cover": "work/sanctuary/cover.jpg",
-    "cover_alt": "A foggy suburban street at dawn",
-    "intro": [
-      "Relations are releasing Sanctuary, their first album in over ten years. Against an algorithm fed by anger and rage, Sanctuary celebrates the quiet, analog experiences that reconnect people and open up new perspectives — the anti-algo album."
-    ],
-    "outcomes": [
-      "We developed the creative concept and final artwork: misty landscape photography, glitched and horizontally smeared, with widely spaced typography.",
-      "One piece of artwork runs across the album cover, single covers such as “The Drift” and “So Long”, streaming visualisers and physical editions."
-    ],
-    "gallery": [
-      {
-        "src": "work/sanctuary/01.jpg",
-        "full": true
-      },
-      {
-        "src": "work/sanctuary/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/03.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/04.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/05.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/06.jpg",
-        "full": true
-      },
-      {
-        "src": "work/sanctuary/07.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/08.jpg",
-        "full": false
-      },
-      {
-        "src": "work/sanctuary/09.jpg",
-        "full": false
-      }
-    ]
-  },
-  {
     "slug": "regent-rose",
     "title": "Regent+Rose",
     "short_title": "Regent+Rose",

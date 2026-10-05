@@ -175,53 +175,6 @@
       "logo": "amika.svg"
     }
   ],
-  "archive": [
-    {
-      "src": "archive/01.jpg",
-      "title": "Her Own",
-      "type": "Packaging & 3D"
-    },
-    {
-      "src": "archive/02.jpg",
-      "title": "Myco",
-      "type": "Brand & 3D"
-    },
-    {
-      "src": "archive/03.jpg",
-      "title": "Elizabeth Shevelev",
-      "type": "NYFW 2024 presentation"
-    },
-    {
-      "src": "archive/04.jpg",
-      "title": "Elixir",
-      "type": "Launch campaign"
-    },
-    {
-      "src": "archive/05.jpg",
-      "title": "Club Égalité",
-      "type": "Event identity"
-    },
-    {
-      "src": "archive/06.jpg",
-      "title": "Stone Island",
-      "type": "Digital"
-    },
-    {
-      "src": "archive/07.jpg",
-      "title": "Benetton",
-      "type": "E-commerce"
-    },
-    {
-      "src": "archive/08.jpg",
-      "title": "Her Own",
-      "type": "Product world"
-    },
-    {
-      "src": "archive/09.jpg",
-      "title": "Glaze",
-      "type": "Brand guidelines"
-    }
-  ],
   "help": [
     {
       "slug": "lisa-foundation",
