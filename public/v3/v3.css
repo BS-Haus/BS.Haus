@@ -541,3 +541,28 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .v3-on .doc, .desktop-dim { transition: opacity 0.6s var(--ease); }
 .reel-on .doc { opacity: 0; pointer-events: none; }
 .reel-on .desktop-dim { opacity: 0 !important; }
+
+/* ---------------------------------------------------------------- no scrolling inside the window:
+   views are laid out to fit, and v3.js zooms a view down slightly if it would still overflow */
+.v3-on .view { overflow: hidden; scrollbar-width: none; display: flex; flex-direction: column; }
+.v3-on .view::-webkit-scrollbar { display: none; }
+.view-fit { transform-origin: 0 0; }
+.v3-on .sidebar { overflow: hidden; }
+.v-statement { font-size: clamp(20px, 2.2vw, 30px); }
+.tiles { margin-top: 18px; }
+.tiles li { padding: 10px 12px; }
+.reel-card { aspect-ratio: auto; height: clamp(110px, 20vh, 170px); margin-top: 10px; }
+.files { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px 10px; }
+.file { gap: 5px; padding: 4px; }
+.file-name { font-size: 12px; }
+.panes { gap: 6px; }
+.pane { padding: 11px 14px; }
+.pane p { font-size: 13px; }
+.v-lede { margin-bottom: 16px; }
+@media (max-width: 760px) {
+  .v3-on .tiles { display: none; }
+  .v-statement { font-size: 19px; }
+  .files { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .file-name { font-size: 11px; }
+  .pane-caps { display: none; }
+}

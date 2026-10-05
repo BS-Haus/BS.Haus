@@ -67,9 +67,32 @@
   // ------------------------------------------------------------ views inside the window
   const VIEW_TITLES = { about: "About — BS.Haus", work: `Work — ${DATA.projects.length} items`, services: "Services — BS.Haus", contact: "Contact — BS.Haus" };
   let view = "about";
+  // Fit a view inside the window without an inner scrollbar: wrap its content and zoom it down if needed.
+  const fitView = (v) => {
+    if (!v) return;
+    let inner = v.firstElementChild?.classList.contains("view-fit") ? v.firstElementChild : null;
+    if (!inner) {
+      inner = document.createElement("div");
+      inner.className = "view-fit";
+      inner.append(...v.childNodes);
+      v.append(inner);
+    }
+    inner.style.transform = "";
+    inner.style.width = "";
+    const cs = getComputedStyle(v);
+    const availH = v.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    const need = inner.scrollHeight;
+    const k = need > availH ? Math.max(0.5, availH / need) : 1;
+    if (k < 1) { inner.style.transform = `scale(${k})`; inner.style.width = `${100 / k}%`; }
+  };
+  const fitAll = () => $$(".view.is-on").forEach(fitView);
+  addEventListener("resize", () => requestAnimationFrame(fitAll));
+  document.fonts?.ready.then(fitAll);
+
   const setView = (name, title) => {
     view = name;
     $$(".view").forEach((v) => v.classList.toggle("is-on", v.dataset.viewPanel === name));
+    requestAnimationFrame(() => fitView($(`.view[data-view-panel="${name}"]`)));
     $$(".side-list button, .mb-menu button").forEach((b) =>
       b.classList.toggle("is-on", b.dataset.view === name || (name === "info" && b.dataset.open === current))
     );
@@ -304,6 +327,7 @@
           </div>
         </div>
       </div>`;
+    infoView.querySelector("img")?.addEventListener("load", () => fitView(infoView), { once: true });
   };
 
   // ------------------------------------------------------------ open / close
@@ -398,6 +422,7 @@
     win.classList.toggle("is-max");
     ox = oy = 0;
     place();
+    requestAnimationFrame(fitAll);
   };
   $(".titlebar").addEventListener("dblclick", (e) => { if (!e.target.closest(".lights")) toggleMax(); });
 

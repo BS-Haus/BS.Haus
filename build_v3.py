@@ -205,8 +205,6 @@ def page_v3(SITE, PROJECTS, URL, version):
             <video src="{media(reel[0]['video'])}" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
             <span class="reel-card-label"><i>▶</i><span><b>Play the screensaver</b><small>A loop through everything we’ve made — {total} projects</small></span></span>
           </button>
-          <p class="v-label" style="margin-top:28px">Recent work</p>
-          <ul class="recent">{recent}</ul>
         </article>
 
         <article class="view view-work" data-view-panel="work">
