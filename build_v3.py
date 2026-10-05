@@ -33,6 +33,48 @@ def statement(text):
     return re.sub(r"\*(.+?)\*", r'<em class="serif">\1</em>', out)
 
 
+def image_size(path):
+    """(width, height) of a JPEG or PNG using only the standard library."""
+    import struct
+    from pathlib import Path
+    data = (Path(__file__).parent / "public" / path.lstrip("/")).read_bytes()
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return struct.unpack(">II", data[16:24])
+    i = 2
+    while i < len(data):
+        if data[i] != 0xFF:
+            i += 1
+            continue
+        marker = data[i + 1]
+        if marker in (0xC0, 0xC1, 0xC2):
+            h, w = struct.unpack(">HH", data[i + 5:i + 9])
+            return w, h
+        i += 2 + struct.unpack(">H", data[i + 2:i + 4])[0]
+    return 0, 0
+
+
+def build_montage(SITE, PROJECTS):
+    """Screensaver sequence: every clip, plus stills that are clean landscape frames (16:10–16:9-ish)."""
+    clips = {c["slug"]: c for c in SITE.get("screensaver_clips", [])}
+    out = []
+    for p in PROJECTS:
+        label = p["title"]
+        if p.get("video"):
+            out.append({"type": "video", "src": media(p["video"]), "label": label})
+        for extra in SITE.get("screensaver_clips", []):
+            if extra["slug"] == p["slug"]:
+                out.append({"type": "video", "src": extra["src"], "label": label})
+        stills = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full")]
+        stills += p.get("screensaver", [])
+        kept = 0
+        for src in dict.fromkeys(stills):
+            w, h = image_size(media(src))
+            if h and 1.45 <= w / h <= 1.9 and kept < 3:
+                out.append({"type": "img", "src": media(src), "label": label})
+                kept += 1
+    return out
+
+
 def project_data(p):
     return {
         "slug": p["slug"],
@@ -57,12 +99,7 @@ def page_v3(SITE, PROJECTS, URL, version):
     total = len(PROJECTS)
     order = {slug: i for i, slug in enumerate(SITE.get("reel_order", []))}
     reel = sorted((p for p in PROJECTS if p.get("video")), key=lambda p: order.get(p["slug"], 99))
-    montage = []
-    for p in PROJECTS:
-        if p.get("video"):
-            montage.append({"type": "video", "src": media(p["video"]), "label": p["title"], "slug": p["slug"]})
-        frames = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full")][:2]
-        montage += [{"type": "img", "src": media(f), "label": p["title"], "slug": p["slug"]} for f in frames]
+    montage = build_montage(SITE, PROJECTS)
     data = {
         "projects": [project_data(p) for p in PROJECTS],
         "reel": [media(p["video"]) for p in reel],
@@ -195,7 +232,7 @@ def page_v3(SITE, PROJECTS, URL, version):
       <div class="views">
         <article class="view view-about is-on" data-view-panel="about">
           <p class="v-label">About</p>
-          <p class="v-statement">{statement(SITE['v2_statement'])}</p>
+          <p class="v-statement">{statement(SITE.get('v3_statement') or SITE['v2_statement'])}</p>
           <ul class="tiles tiles-3">
             <li><span>Founded</span><b>{SITE['founded']}</b></li>
             <li><span>Based in</span><b>Haggerston, London</b></li>
@@ -246,8 +283,8 @@ def page_v3(SITE, PROJECTS, URL, version):
   <div class="doc" id="doc">
     <article class="doc-studio" data-doc="studio">
       <header class="doc-hero">
-        <p class="doc-kicker">The studio</p>
-        <h1 class="doc-title">A creative venture studio <em class="serif">in London</em></h1>
+        <p class="doc-kicker">BS.Haus — design studio</p>
+        <h1 class="doc-title">A design studio <em class="serif">in London</em></h1>
       </header>
       <section class="glass doc-block">
         <div class="doc-cols">
@@ -275,6 +312,7 @@ def page_v3(SITE, PROJECTS, URL, version):
   <noscript><p class="noscript-links"><a href="/work">All work</a> · <a href="/">Classic site</a></p></noscript>
 </main>
 
+<div class="saver" aria-hidden="true"></div>
 <div class="reel-hud" aria-live="polite">
   <span class="reel-rec"></span><span class="reel-now">Screensaver</span><span class="reel-count"></span>
   <button type="button" class="reel-close" data-reel-close aria-label="Close the screensaver">Close ✕</button>

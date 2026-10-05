@@ -566,3 +566,20 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
   .file-name { font-size: 11px; }
   .pane-caps { display: none; }
 }
+
+/* About statement: a touch larger, "design studio" leads */
+.v-statement { font-size: clamp(23px, 2.6vw, 36px); max-width: 24ch; }
+.v-statement .serif { font-size: 1.06em; }
+@media (max-width: 760px) { .v-statement { font-size: 22px; } }
+
+/* ---------------------------------------------------------------- screensaver overlay */
+.saver { position: fixed; inset: 0; z-index: 85; background: #050505; opacity: 0; visibility: hidden; transition: opacity 0.8s var(--ease), visibility 0.8s; cursor: none; overflow: hidden; }
+.reel-on .saver { opacity: 1; visibility: visible; }
+.saver-item { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; will-change: opacity, transform, filter; }
+@media (orientation: portrait) { .saver-item { object-fit: contain; } }
+.reel-hud { z-index: 90; }
+.reel-on .reel-hud { bottom: max(22px, env(safe-area-inset-bottom)); }
+.v3-on.reel-on .os-window.is-docked { opacity: 1; pointer-events: auto; }
+.reel-hud, .reel-hud * { white-space: nowrap; }
+.reel-now { max-width: 42vw; }
+.reel-close { flex: none; }

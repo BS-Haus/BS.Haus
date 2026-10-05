@@ -189,7 +189,7 @@
     {
       "slug": "decathlon-design-egalite",
       "name": "Decathlon",
-      "line": "Shaped an innovation framework and a festival world with SKEWED."
+      "line": "Shaped an innovation framework for Decathlon’s teams, with SKEWED."
     },
     {
       "slug": "figma-slides-infinite-scroll",
@@ -202,11 +202,6 @@
       "line": "Rebuilt the brand and launched Erria 2.0, a marketplace for makers."
     },
     {
-      "slug": "regent-rose",
-      "name": "Regent+Rose",
-      "line": "Created a skincare brand from the wordmark up."
-    },
-    {
       "slug": "amika-connect",
       "name": "amika",
       "line": "Brought amika: connect to life on stage and on screen."
@@ -217,5 +212,6 @@
     "amika-connect",
     "erria",
     "lisa-foundation"
-  ]
+  ],
+  "v3_statement": "We’re a *design studio* in London — [chip:sarah] Sarah & Ben [chip:ben], a husband-and-wife team designing brands, digital products and experiences from 0→1 for founders and global brands."
 }

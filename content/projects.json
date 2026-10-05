@@ -15,7 +15,7 @@
     "featured": true,
     "video": "reel/lisa.mp4",
     "cover": "work/lisa-foundation/cover.jpg",
-    "cover_alt": "The LISA wordmark projected in an empty gallery room",
+    "cover_alt": "The LISA wordmark on a gallery wall",
     "intro": [
       "LISA Foundation is the first platform for collective ownership and governance of physical art. Using blockchain, LISA utilises fractional ownership to allow investors to purchase physical blue-chip artworks from as little as $1.",
       "Breaking into the art market is hard for beginner collectors: waitlists last for years, the best deals happen behind closed doors and maintenance fees are high. LISA set out to open it up."
@@ -87,7 +87,7 @@
     "featured": true,
     "video": "reel/erria.mp4",
     "cover": "work/erria/cover.jpg",
-    "cover_alt": "Erria brand identity and marketplace homepage designs",
+    "cover_alt": "The Erria wordmark in maroon on yellow",
     "intro": [
       "Erria is a platform built to support creative work and the people behind it, connecting buyers directly with independent makers and designers.",
       "As they prepared to scale, Erria asked us to help translate their mission of transparency, equity and community into a sharper brand identity and digital presence that could drive growth while staying true to their values."
@@ -340,58 +340,6 @@
     ]
   },
   {
-    "slug": "decathlon-wonderland",
-    "title": "Decathlon — Wonderland",
-    "short_title": "Wonderland",
-    "client": "Decathlon",
-    "partner": "SKEWED",
-    "year": "2024",
-    "industry": "Sports, Events",
-    "services": "Event Identity, Experience Design, App & Screen Design",
-    "tags": [
-      "Identity",
-      "Experience",
-      "App"
-    ],
-    "summary": "48 hours of sports wonder at the Festival of Innovation Exchange 2024.",
-    "featured": false,
-    "cover": "work/decathlon-wonderland/cover.jpg",
-    "cover_alt": "‘Welcome to Wonderland’ key visual — two people resting on a surreal mountainside",
-    "intro": [
-      "The Innovation Exchange Festival presents: 48 hours of sports wonder. For Decathlon’s 2024 Festival of Innovation Exchange, the brief was to create a world that would pull teams out of the everyday and into a more playful, imaginative frame of mind."
-    ],
-    "outcomes": [
-      "We built Wonderland — a fluid, dreamlike identity spanning key visuals, posters, wayfinding and signage.",
-      "The world extended into a companion festival app and large-format screens, guiding attendees through workshops, talks and daily meditations across the event."
-    ],
-    "gallery": [
-      {
-        "src": "work/decathlon-wonderland/01.jpg",
-        "full": false
-      },
-      {
-        "src": "work/decathlon-wonderland/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/decathlon-wonderland/03.jpg",
-        "full": true
-      },
-      {
-        "src": "work/decathlon-wonderland/04.jpg",
-        "full": true
-      },
-      {
-        "src": "work/decathlon-wonderland/05.jpg",
-        "full": false
-      },
-      {
-        "src": "work/decathlon-wonderland/06.jpg",
-        "full": false
-      }
-    ]
-  },
-  {
     "slug": "meadow",
     "title": "Meadow",
     "short_title": "Meadow",
@@ -468,92 +416,6 @@
       {
         "src": "work/meadow/13.jpg",
         "full": true
-      }
-    ]
-  },
-  {
-    "slug": "regent-rose",
-    "title": "Regent+Rose",
-    "short_title": "Regent+Rose",
-    "client": "Regent+Rose",
-    "industry": "Beauty & Skincare",
-    "services": "Brand Identity, Packaging, Art Direction, E-commerce",
-    "tags": [
-      "Brand",
-      "Packaging",
-      "Art direction"
-    ],
-    "summary": "A day-and-night skincare brand, built from the wordmark up.",
-    "featured": false,
-    "cover": "work/regent-rose/cover.jpg",
-    "cover_alt": "Regent+Rose skincare bottles on a marble plinth by the sea",
-    "intro": [
-      "Regent+Rose is a Miami-based skincare brand built around a simple daily ritual: Day and Night essentials powered by ingredients like propolis, royal jelly, centella and snow mushroom."
-    ],
-    "outcomes": [
-      "We designed the brand from the wordmark up — a bold, scalable identity system and a ‘+R’ monogram — and carried it across a complete packaging range, from gel cleanser to peptide moisturiser.",
-      "Art direction for product and lifestyle photography set the tone for social and the e-commerce site, with a Day and Night colour world that makes the range easy to navigate."
-    ],
-    "gallery": [
-      {
-        "src": "work/regent-rose/01.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/03.jpg",
-        "full": true
-      },
-      {
-        "src": "work/regent-rose/04.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/05.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/06.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/07.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/08.jpg",
-        "full": true
-      },
-      {
-        "src": "work/regent-rose/09.jpg",
-        "full": true
-      },
-      {
-        "src": "work/regent-rose/10.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/11.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/12.jpg",
-        "full": true
-      },
-      {
-        "src": "work/regent-rose/13.jpg",
-        "full": true
-      },
-      {
-        "src": "work/regent-rose/14.jpg",
-        "full": false
-      },
-      {
-        "src": "work/regent-rose/15.jpg",
-        "full": false
       }
     ]
   },

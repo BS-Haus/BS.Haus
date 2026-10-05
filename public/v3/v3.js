@@ -116,9 +116,7 @@
     const el = document.createElement("div");
     el.className = "bg-layer";
     el.dataset.bg = key;
-    if (key === "reel") {
-      el.innerHTML = '<img class="reel-a" alt=""><img class="reel-b" alt=""><video class="reel-v" muted playsinline preload="auto"></video>';
-    } else {
+    {
       const p = P[key];
       if (p.video) {
         const v = document.createElement("video");
@@ -146,16 +144,14 @@
     if (key === bgKey) return;
     const next = layers[key] || (layers[key] = makeLayer(key));
     const prev = layers[bgKey];
-    if (bgKey === "reel") Saver.halt();
     bgKey = key;
     clearInterval(bgCycle);
-    if (key === "reel") Saver.run(next);
     requestAnimationFrame(() => {
       next.classList.add("is-on");
       prev?.classList.remove("is-on");
       gsap.fromTo(next, { scale: 1.08 }, { scale: 1, duration: 2.6, ease: "expo.out" });
     });
-    $$("video", desktop).forEach((v) => (v.closest(".bg-layer") === next && key !== "reel" ? v.play().catch(() => {}) : v.pause()));
+    $$("video", desktop).forEach((v) => (v.closest(".bg-layer") === next ? v.play().catch(() => {}) : v.pause()));
     const imgs = $$("img", next);
     if (imgs.length > 1) {
       let i = 0;
@@ -167,82 +163,72 @@
     }
   };
 
-  // ------------------------------------------------------------ screensaver: a fast montage of every project
+  // ------------------------------------------------------------ screensaver: a full-screen overlay that drifts through the work
+  const saverEl = $(".saver");
   const hud = $(".reel-hud");
   const hudNow = $(".reel-now", hud);
   const hudCount = $(".reel-count", hud);
   const Saver = (() => {
     const items = DATA.montage;
-    let i = 0, timer = 0, el = null, front = "a", token = 0;
-    const STILL = 1100, CLIP = 3600;
+    const STILL = 2600, CLIP = 5200, FADE = 1.4;
+    let i = 0, timer = 0, token = 0, cur = null;
+    const make = (it) => {
+      const el = it.type === "video" ? document.createElement("video") : new Image();
+      if (it.type === "video") Object.assign(el, { muted: true, playsInline: true, preload: "auto", loop: true });
+      el.className = "saver-item";
+      el.alt = "";
+      el.src = it.src;
+      return el;
+    };
+    const ready = (el, it) =>
+      it.type === "video"
+        ? new Promise((r) => { el.addEventListener("playing", r, { once: true }); el.addEventListener("error", r, { once: true }); el.play().catch(r); })
+        : (el.decode ? el.decode().catch(() => {}) : Promise.resolve());
     const preload = (k) => { const it = items[k % items.length]; if (it.type === "img") { const im = new Image(); im.src = it.src; } };
     const show = () => {
       const my = ++token;
       const it = items[i % items.length];
-      const n = (i % items.length) + 1;
-      hudNow.textContent = it.label;
-      hudCount.textContent = `${String(n).padStart(2, "0")} / ${items.length}`;
-      const a = $(".reel-a", el), b = $(".reel-b", el), v = $(".reel-v", el);
-      const advance = (ms) => { timer = setTimeout(() => { if (my === token) { i++; show(); } }, ms); };
-      if (it.type === "img") {
-        const target = front === "a" ? b : a;
-        const done = () => {
-          if (my !== token) return;
-          target.classList.add("is-front");
-          (target === a ? b : a).classList.remove("is-front");
-          v.classList.remove("is-front");
-          v.pause();
-          gsap.fromTo(target, { scale: 1.06 }, { scale: 1, duration: STILL / 1000 + 0.4, ease: "power2.out" });
-          front = target === a ? "a" : "b";
-          preload(i + 1);
-          advance(STILL);
-        };
-        target.onload = done;
-        target.onerror = () => { i++; show(); };
-        target.src = it.src;
-        if (target.complete && target.naturalWidth) { target.onload = null; done(); }
-      } else {
-        v.src = it.src;
-        v.currentTime = 0;
-        v.onplaying = () => {
-          if (my !== token) return;
-          v.classList.add("is-front");
-          a.classList.remove("is-front");
-          b.classList.remove("is-front");
-          advance(CLIP);
-        };
-        v.onerror = () => { i++; show(); };
-        v.play().catch(() => { i++; show(); });
-      }
+      const el = make(it);
+      gsap.set(el, { opacity: 0 });
+      saverEl.append(el);
+      ready(el, it).then(() => {
+        if (my !== token) { el.remove(); return; }
+        hudNow.textContent = it.label;
+        hudCount.textContent = `${String((i % items.length) + 1).padStart(2, "0")} / ${items.length}`;
+        const hold = it.type === "video" ? CLIP : STILL;
+        // dissolve in from a soft blur, then a slow drift for as long as it holds
+        gsap.fromTo(el, { opacity: 0, filter: "blur(16px)" }, { opacity: 1, filter: "blur(0px)", duration: FADE, ease: "power2.inOut" });
+        gsap.fromTo(el, { scale: 1.07 }, { scale: 1, duration: (hold + FADE * 1000) / 1000, ease: "sine.out" });
+        const prev = cur;
+        cur = el;
+        if (prev) gsap.to(prev, { opacity: 0, duration: FADE, ease: "power2.inOut", onComplete: () => { prev.pause?.(); prev.remove(); } });
+        preload(i + 1);
+        timer = setTimeout(() => { if (my === token) { i++; show(); } }, hold);
+      });
     };
     return {
-      run(layer) { el = layer; root.classList.add("reel-on"); show(); },
-      halt() { token++; clearTimeout(timer); root.classList.remove("reel-on"); el && $(".reel-v", el).pause(); },
+      on: false,
+      run() { this.on = true; root.classList.add("reel-on"); show(); },
+      halt() {
+        this.on = false;
+        token++;
+        clearTimeout(timer);
+        root.classList.remove("reel-on");
+        setTimeout(() => { if (!this.on) { saverEl.querySelectorAll(".saver-item").forEach((x) => { x.pause?.(); x.remove(); }); cur = null; } }, 700);
+      },
     };
   })();
 
-  // The window docks while the screensaver plays (R) — independent of scroll (M).
-  let R = 0;
-  let saverReturn = "studio";
   let saverManual = false;
-  const startSaver = ({ manual = true } = {}) => {
-    if (bgKey === "reel") return;
-    saverManual = manual;
-    saverReturn = bgKey;
-    setBg("reel");
-    gsap.to({ v: R }, { v: 1, duration: 1.3, ease: "power3.inOut", onUpdate() { R = this.targets()[0].v; } });
-  };
-  const stopSaver = () => {
-    if (bgKey !== "reel") return;
-    setBg(saverReturn);
-    gsap.to({ v: R }, { v: 0, duration: 1.2, ease: "power3.inOut", onUpdate() { R = this.targets()[0].v; } });
-  };
+  const startSaver = ({ manual = true } = {}) => { if (Saver.on) return; saverManual = manual; Saver.run(); };
+  const stopSaver = () => { if (Saver.on) Saver.halt(); };
+  const R = 0; // kept for place(): the window no longer docks for the screensaver
 
   // Like a real OS: after a while with no input, the screensaver starts; any input wakes it.
   const IDLE_MS = 45000;
   let idleTimer = 0;
   const poke = () => {
-    if (bgKey === "reel" && !saverManual) stopSaver();
+    if (Saver.on && !saverManual) stopSaver();
     clearTimeout(idleTimer);
     idleTimer = setTimeout(() => { if (M < 0.1 && !document.hidden) startSaver({ manual: false }); }, IDLE_MS);
   };
@@ -336,7 +322,7 @@
   const openProject = async (slug, { scroll = true } = {}) => {
     const p = P[slug];
     if (!p) return;
-    if (bgKey === "reel") { saverReturn = slug; stopSaver(); }
+    stopSaver();
     current = slug;
     setBg(slug);
     renderInfo(p);
@@ -362,7 +348,7 @@
     else if (t.matches("[data-studio]")) openStudio();
     else if (t.matches("[data-view]")) { setView(t.dataset.view); if (M > 0.3) scrollTo(0); }
     else if (t.matches("[data-reel-close]")) stopSaver();
-    else if (t.matches("[data-reel]")) { bgKey === "reel" ? stopSaver() : startSaver({ manual: true }); }
+    else if (t.matches("[data-reel]")) { Saver.on ? stopSaver() : startSaver({ manual: true }); }
     else if (t.matches("[data-read]")) scrollTo(docStart(), { duration: 1.8 });
     else if (t.matches("[data-light]")) {
       if (t.dataset.light === "max") toggleMax();
@@ -370,12 +356,12 @@
     }
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { if (bgKey === "reel") stopSaver(); else openStudio(); }
+    if (e.key === "Escape") { if (Saver.on) stopSaver(); else openStudio(); }
     if ((e.key === "Enter" || e.key === " ") && e.target.matches(".next-up")) { e.preventDefault(); openProject(e.target.dataset.open); }
   });
+  saverEl.addEventListener("click", (e) => { if (!e.target.closest(".reel-hud")) stopSaver(); });
   win.addEventListener("click", () => {
     if (!win.classList.contains("is-mini")) return;
-    if (bgKey === "reel") stopSaver();
     if (M > 0.05) scrollTo(0, { duration: 1.4 });
   });
 
