@@ -148,7 +148,6 @@
   const hud = $(".reel-hud");
   const hudNow = $(".reel-now", hud);
   const hudCount = $(".reel-count", hud);
-  const hudBar = $(".reel-progress", hud);
   const Saver = (() => {
     const items = DATA.montage;
     let i = 0, timer = 0, el = null, front = "a", token = 0;
@@ -160,7 +159,6 @@
       const n = (i % items.length) + 1;
       hudNow.textContent = it.label;
       hudCount.textContent = `${String(n).padStart(2, "0")} / ${items.length}`;
-      gsap.fromTo(hudBar, { width: "0%" }, { width: "100%", duration: (it.type === "video" ? CLIP : STILL) / 1000, ease: "none", overwrite: true });
       const a = $(".reel-a", el), b = $(".reel-b", el), v = $(".reel-v", el);
       const advance = (ms) => { timer = setTimeout(() => { if (my === token) { i++; show(); } }, ms); };
       if (it.type === "img") {

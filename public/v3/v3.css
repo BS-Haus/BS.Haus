@@ -530,3 +530,14 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .mb-mark .logo-bs { display: block; font-size: 16px; transform: translateY(1.5px); }
 .app-studio .logo-bs { display: block; font-size: 19px; transform: translateY(2px); }
 @media (max-width: 760px) { .app-studio .logo-bs { font-size: 16px; } }
+
+/* while the screensaver plays: the dock (and the window docked in it) slide away; the ticker takes their place */
+.dock { transition: transform 0.7s var(--ease), opacity 0.5s var(--ease); }
+.v3-on .os-window { transition: opacity 0.5s var(--ease); }
+.reel-on .dock { transform: translate(-50%, 160%); opacity: 0; pointer-events: none; }
+.v3-on.reel-on .os-window.is-docked { opacity: 0; pointer-events: none; }
+.reel-on .reel-hud { bottom: max(18px, env(safe-area-inset-bottom)); }
+@media (max-width: 760px) { .reel-on .reel-hud { bottom: max(14px, env(safe-area-inset-bottom)); } }
+.v3-on .doc, .desktop-dim { transition: opacity 0.6s var(--ease); }
+.reel-on .doc { opacity: 0; pointer-events: none; }
+.reel-on .desktop-dim { opacity: 0 !important; }

@@ -161,7 +161,6 @@ def page_v3(SITE, PROJECTS, URL, version):
     <button type="button" data-view="services">Services</button>
     <button type="button" data-view="contact">Contact</button>
   </nav>
-  <button type="button" class="mb-reel" data-reel>▶ Screensaver</button>
   <div class="mb-status">
     <span class="mb-avail"><i></i>Available for new projects</span>
     <span data-date></span>
@@ -281,7 +280,6 @@ def page_v3(SITE, PROJECTS, URL, version):
 <div class="reel-hud" aria-live="polite">
   <span class="reel-rec"></span><span class="reel-now">Screensaver</span><span class="reel-count"></span>
   <button type="button" class="reel-close" data-reel-close aria-label="Close the screensaver">Close ✕</button>
-  <i class="reel-progress"></i>
 </div>
 
 <nav class="dock" aria-label="Sections">
