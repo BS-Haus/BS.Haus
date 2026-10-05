@@ -17,14 +17,19 @@
     "cover": "work/lisa-foundation/cover.jpg",
     "cover_alt": "The LISA wordmark on a gallery wall",
     "intro": [
-      "LISA Foundation is the first platform for collective ownership and governance of physical art. Using blockchain, LISA utilises fractional ownership to allow investors to purchase physical blue-chip artworks from as little as $1.",
-      "Breaking into the art market is hard for beginner collectors: waitlists last for years, the best deals happen behind closed doors and maintenance fees are high. LISA set out to open it up."
+      "LISA Foundation is the first web3 platform for collective ownership and governance of physical art: investors buy into blue-chip works from as little as $1.",
+      "The art market is hard to break into — waitlists last years, the best deals happen behind closed doors and incumbents charge heavy fees. LISA needed a product that made owning art feel open, trustworthy and simple."
     ],
     "outcomes": [
-      "For 2+ years BS led product and digital design at LISA Foundation, helping them scale from idea to MVP and beyond.",
-      "We shaped the end-to-end collector experience — curated discovery, fractional purchase and ownership — across web and mobile, alongside the tokenomics and customer-journey mapping that underpins the platform."
+      "For over two years we led product and digital design, taking LISA from idea to MVP and beyond: curated discovery, fractional purchase and the ownership experience across web and mobile, underpinned by tokenomics and customer-journey mapping.",
+      "In closed beta, two of the first three releases sold out — $105k in sales across 257 collectors. The launch campaign centred on Magdalena Abakanowicz’s Walking Figures with the Vancouver Biennale."
     ],
     "gallery": [
+      {
+        "video": "clips/lisa-foundation-1.mp4",
+        "poster": "clips/lisa-foundation-1.jpg",
+        "full": true
+      },
       {
         "src": "work/lisa-foundation/01.jpg",
         "full": true
@@ -89,13 +94,12 @@
     "cover": "work/erria/cover.jpg",
     "cover_alt": "The Erria wordmark in maroon on yellow",
     "intro": [
-      "Erria is a platform built to support creative work and the people behind it, connecting buyers directly with independent makers and designers.",
-      "As they prepared to scale, Erria asked us to help translate their mission of transparency, equity and community into a sharper brand identity and digital presence that could drive growth while staying true to their values."
+      "Erria is a curated marketplace connecting buyers directly with high-end independent makers and designers — with more than 1,500 designers onboard.",
+      "As it prepared to scale, Erria needed a sharper brand, a clear story for its revenue model (buyer and seller subscriptions plus a sliding commission) and a better way to discover work — search only filtered by location."
     ],
     "outcomes": [
-      "BS led the full creative direction for this evolution, delivering a refreshed brand system and modular identity that works seamlessly across social media, storefront and packaging.",
-      "We designed and launched Erria 2.0, a brand new e-commerce marketplace that creates a more intentional sales ecosystem between buyers and sellers. Alongside this, we developed a new landing page to articulate their mission and showcase products with clarity.",
-      "The result is a cohesive brand and practical toolkit that empowers Erria to communicate their purpose while making it easier for buyers to discover, shop and collect meaningfully."
+      "We led a 2.0 brand tuning: a refreshed brand system and modular identity that works across social, storefront and packaging.",
+      "We designed Erria 2.0 — a new e-commerce marketplace with richer search and map-led discovery — plus a waitlist landing page to articulate the mission, handing the MVP design over in June 2025."
     ],
     "gallery": [
       {
@@ -163,7 +167,8 @@
     "outcomes": [
       "BS led the full creative direction for the Virgins campaign, shaping the concept, messaging and visual language from the ground up.",
       "We delivered a bold new brand design system including an exclusive Virgin Blue palette, refined typography, art direction and product photography.",
-      "Our team executed a full brand refresh across digital, social media, point of sale and packaging, and developed a 12-week social-first campaign with paid ads and influencer content."
+      "Our team executed a full brand refresh across digital, social media, point of sale and packaging, and developed a 12-week social-first campaign with paid ads and influencer content.",
+      "The campaign was shot with photographer Christine Hahn."
     ],
     "gallery": [
       {
@@ -238,15 +243,19 @@
     "cover": "work/decathlon-design-egalite/cover.jpg",
     "cover_alt": "The Design Égalité app splash screen on a phone inside a Decathlon campus",
     "intro": [
-      "Decathlon partnered with SKEWED to help define a new internal framework for innovation through the lens of Design Égalité.",
-      "The challenge was to create a compelling methodology that could align teams around the cultural importance of sports, movement and design while encouraging a more experimental, future-facing approach to product and retail thinking. Rather than focusing on a single outcome, the project explored how storytelling, systems thinking and immersive experiences could become tools for driving long-term innovation across the business."
+      "Decathlon partnered with SKEWED to define a new internal framework for innovation: Design Égalité, built on “5 moves to move people through the wonders of sport” across five values — Nature, Beauty, Health, Play and Wallet.",
+      "The flagship programme plans fifteen projects over five years. The challenge was to make the methodology tangible enough that product and retail teams would actually use it."
     ],
     "outcomes": [
-      "BS supported SKEWED across the strategic and creative development of the initiative, helping shape the experience narrative, visual storytelling and presentation framework used to communicate the methodology internally.",
-      "Together, we developed a five-step innovation model designed to guide teams through ideation, validation and rollout, alongside a toolbox covering process, collaboration and implementation strategy.",
-      "The result was a scalable internal design framework that positioned Design Égalité as a catalyst for future innovation across Decathlon."
+      "Working with SKEWED, we shaped the experience narrative, visual storytelling and presentation framework used to communicate Design Égalité across the business.",
+      "Through autumn 2025 we applied the 5 Moves to a real product — the Quechua camping chair — ran ideation sessions, wrote the communications strategy and specified a toolbox, including its interface, to guide teams through ideation, validation and rollout."
     ],
     "gallery": [
+      {
+        "video": "clips/decathlon-design-egalite-1.mp4",
+        "poster": "clips/decathlon-design-egalite-1.jpg",
+        "full": true
+      },
       {
         "src": "work/decathlon-design-egalite/01.jpg",
         "full": true
@@ -322,6 +331,11 @@
     ],
     "gallery": [
       {
+        "video": "clips/figma-slides-infinite-scroll-1.mp4",
+        "poster": "clips/figma-slides-infinite-scroll-1.jpg",
+        "full": true
+      },
+      {
         "src": "work/figma-slides-infinite-scroll/01.jpg",
         "full": true
       },
@@ -353,18 +367,23 @@
       "Art direction"
     ],
     "featured": false,
-    "summary": "A living system — the identity for a focus brand built around Micro and Macro.",
+    "summary": "A living system — a calm, design-led wellness brand built around Micro and Macro.",
     "cover": "work/meadow/cover.jpg",
     "cover_alt": "The meadow wordmark under a fisheye sky with the symbol at its centre",
     "intro": [
-      "Meadow is an ecosystem — the culture, the community, the conversation — built around two products, Micro and Macro, that help you focus inward or expand outward.",
-      "Micro is for deep focus, balance and clarity; Macro is for perspective and reflection."
+      "Meadow is a Lisbon-based brand bringing calm, science-informed microdosing to people across Europe, built around two kits: Micro, for focus and clarity, and Macro, for perspective and reflection.",
+      "The brief was to stand apart from a category that feels either spiritual or synthetic — to be a gentle guide, not a guru — for design-minded professionals aged 25–40, with the ambition of becoming Europe’s most trusted name in the space."
     ],
     "outcomes": [
-      "We built the identity around the idea of a living system: calm and simple above ground, with a network of connection and growth below.",
-      "The system spans the wordmark and symbol, fisheye campaign photography, app icons, a brushed-metal tin, holographic and kraft packaging, Macro/Micro posters and social."
+      "We built the identity around a living system: calm, open and simple above ground, with a vast network of connection and growth below — expressed through the wordmark, symbol and a fisheye photographic world.",
+      "The system runs through the pill packs and compact, sleeves and embossed boxes, kraft mailers, field notes, the app and social, giving Meadow a quiet confidence from first glance to the product in hand."
     ],
     "gallery": [
+      {
+        "video": "clips/meadow-1.mp4",
+        "poster": "clips/meadow-1.jpg",
+        "full": true
+      },
       {
         "src": "work/meadow/01.jpg",
         "full": true
@@ -442,14 +461,19 @@
     "cover": "work/amika-connect/cover.jpg",
     "cover_alt": "The amika: connect lockup on a pink-to-orange gradient",
     "intro": [
-      "amika:connect is amika’s annual company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
-      "For 2026 the team gathered at the Hyatt Regency Hill Country in San Antonio under the theme “Game Time at the House of amika”."
+      "amika:connect is amika’s first amika-only company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
+      "For February 2026 in San Antonio, the theme was “Game Time at the House of amika” — a Super Bowl-inspired signal that amika now plays at the top level."
     ],
     "outcomes": [
-      "We built the whole conference world: a flexible amika:connect lockup, gradient key visuals, dot-matrix GAMEDAY typography and a stage and LED environment that wrapped every session.",
-      "The system carried through presentations, name badges and merch — jerseys numbered with each employee’s start year, Accolades varsity jackets and custom patches — all documented in a brand playbook for the team."
+      "We built the whole conference world: a flexible amika:connect lockup, gradient key visuals, dot-matrix GAMEDAY typography, stage and LED environments, idle-screen states and lobby LED loops.",
+      "The system carried through two mainstage presentation decks, name badges and merch — jerseys numbered with each employee’s start year, Accolades varsity jackets and custom patches — all documented in a brand playbook."
     ],
     "gallery": [
+      {
+        "video": "clips/amika-connect-1.mp4",
+        "poster": "clips/amika-connect-1.jpg",
+        "full": true
+      },
       {
         "src": "work/amika-connect/01.jpg",
         "full": false
@@ -513,18 +537,30 @@
       "3D",
       "Web"
     ],
-    "summary": "A brand world for a Chi Kung and BodyMind practice — outgrowing your relationship to your mind.",
+    "summary": "Outgrow your relationship to your mind — the brand world and website for Emma Reicher.",
     "featured": false,
     "cover": "work/emma-reicher/cover.jpg",
     "cover_alt": "The Emma Reicher hero lockup over an overgrown garden path",
     "intro": [
-      "Emma Reicher is a Chi Kung teacher and BodyMind practitioner whose work speaks to people who sense there is more to reality than thought — an invitation to outgrow your relationship to your mind."
+      "Emma Reicher is a psychotherapist, group analyst and founder of Field Therapy, weaving the integrity of psychotherapy with the intelligence of maturation and the vitality of elemental Chi Kung.",
+      "Her work speaks to people who sense there is more to reality than thought — therapists, creatives, leaders and healers. She needed a brand that could hold that depth without feeling esoteric."
     ],
     "outcomes": [
-      "We built a brand world around The Totem: a family of sculptural, shape-shifting forms rendered in many materials, paired with an elemental colour system — Wood, Water, Earth, Metal and Fire.",
-      "The identity extends into a website of frosted-glass panels over open landscapes, programme “portals” such as Dreams Decoded and Vision Quest, brochures and Instagram templates for the Chi Kung Collective."
+      "We created a brand world around The Totem — a family of sculptural, shape-shifting forms rendered in many materials — with an elemental colour system of Wood, Water, Earth, Energy, Fire and Psychic.",
+      "It comes to life on emmareicher.com: frosted-glass panels over open landscapes, programme “portals” such as Dreams Decoded and Vision Quest, plus brochures, Instagram templates for the Chi Kung Collective and a case film."
     ],
     "gallery": [
+      {
+        "video": "clips/emma-reicher-film.mp4",
+        "poster": "clips/emma-reicher-film.jpg",
+        "full": false,
+        "caption": "Case film"
+      },
+      {
+        "video": "clips/emma-reicher-1.mp4",
+        "poster": "clips/emma-reicher-1.jpg",
+        "full": true
+      },
       {
         "src": "work/emma-reicher/01.jpg",
         "full": true

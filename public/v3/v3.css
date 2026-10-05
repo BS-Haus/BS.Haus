@@ -606,3 +606,23 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .reel-mini:hover .reel-mini-media img.is-on { transform: scale(1.05); }
 @media (max-width: 900px) { .tiles-4 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 760px) { .v3-on .tiles.tiles-4 { display: grid; } .tiles-4 li { min-height: 64px; } }
+
+/* About: smooth statement flow + client ticker above the facts */
+.v-statement { text-wrap: pretty; }
+.br-wide { display: none; }
+@media (min-width: 900px) { .br-wide { display: inline; } .v-statement { max-width: 34ch; } }
+.about-logos { margin: auto 0 0; padding: 22px 0 4px; border-top: 0; opacity: 0.85; }
+.about-logos .logos-run { gap: clamp(30px, 4vw, 56px); padding-right: clamp(30px, 4vw, 56px); }
+.about-logos .logos-run img { height: 17px; }
+.view-about .tiles-4 { margin-top: 14px; padding-top: 0; }
+@media (min-width: 900px) { .v-statement { max-width: 47ch; font-size: clamp(21px, 2vw, 29px); } }
+
+/* ticker sits under the fact cards */
+.view-about .tiles-4 { margin-top: auto; padding-top: 24px; }
+.about-logos { margin: 16px 0 0; padding: 4px 0 0; }
+
+/* statement: each block balances its own lines */
+.st-line { display: block; text-wrap: balance; }
+.v-statement { max-width: 40ch; }
+@media (min-width: 900px) { .v-statement { max-width: 40ch; } }
+.about-logos { margin-top: 30px; }

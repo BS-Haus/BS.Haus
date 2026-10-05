@@ -213,10 +213,36 @@
     "erria",
     "lisa-foundation"
   ],
-  "v3_statement": "[logo] is a creative studio based in London, run by Ben [chip:ben] & Sarah [chip:sarah] — a husband-and-wife duo designing brands, digital products and experiences from 0→1 for founders and global brands.",
+  "v3_statement": "[logo] is a creative studio based in London, run by Ben [chip:ben] & Sarah [chip:sarah] — a husband-and-wife duo designing brands, digital products and[br] experiences from 0→1 for founders and global brands.",
   "ga4": "G-8MG0B2XXC0",
   "same_as": [
     "https://www.instagram.com/bs.haus/",
     "https://github.com/BS-Haus"
+  ],
+  "screensaver_clips": [
+    {
+      "slug": "lisa-foundation",
+      "src": "/media/clips/lisa-foundation-1.mp4"
+    },
+    {
+      "slug": "decathlon-design-egalite",
+      "src": "/media/clips/decathlon-design-egalite-1.mp4"
+    },
+    {
+      "slug": "figma-slides-infinite-scroll",
+      "src": "/media/clips/figma-slides-infinite-scroll-1.mp4"
+    },
+    {
+      "slug": "meadow",
+      "src": "/media/clips/meadow-1.mp4"
+    },
+    {
+      "slug": "amika-connect",
+      "src": "/media/clips/amika-connect-1.mp4"
+    },
+    {
+      "slug": "emma-reicher",
+      "src": "/media/clips/emma-reicher-1.mp4"
+    }
   ]
 }

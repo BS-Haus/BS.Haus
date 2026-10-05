@@ -24,7 +24,7 @@ def media(path):
 
 def snippets(p, n=4):
     """A few stills per project for the in-card slideshow — full-width frames first."""
-    gallery = sorted(p.get("gallery", []), key=lambda g: not g.get("full"))
+    gallery = sorted((g for g in p.get("gallery", []) if g.get("src")), key=lambda g: not g.get("full"))
     return [p["cover"]] + [g["src"] for g in gallery[: n - 1]]
 
 

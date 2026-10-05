@@ -33,6 +33,10 @@ def statement(text):
         out,
     )
     out = out.replace("[logo]", '<span class="logo-bs" aria-label="BS">BS</span>')
+    if "[br]" in out:  # two balanced blocks: no stranded fragments, no widows
+        first, second = out.split("[br]", 1)
+        out = f'<span class="st-line">{first.strip()}</span><span class="st-line">{second.strip()}</span>'
+
     return re.sub(r"\*(.+?)\*", r'<em class="serif">\1</em>', out)
 
 
@@ -67,7 +71,7 @@ def build_montage(SITE, PROJECTS):
         for extra in SITE.get("screensaver_clips", []):
             if extra["slug"] == p["slug"]:
                 out.append({"type": "video", "src": extra["src"], "label": label})
-        stills = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full")]
+        stills = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full") and g.get("src")]
         stills += p.get("screensaver", [])
         kept = 0
         for src in dict.fromkeys(stills):
@@ -94,7 +98,8 @@ def project_data(p):
         "partner": p.get("partner", ""),
         "cover": media(p["cover"]),
         "video": media(p["video"]) if p.get("video") else "",
-        "gallery": [{"src": media(g["src"]), "full": g.get("full", False)} for g in p.get("gallery", [])],
+        "gallery": [({"video": media(g["video"]), "poster": media(g["poster"]), "full": g.get("full", False)} if g.get("video")
+                     else {"src": media(g["src"]), "full": g.get("full", False)}) for g in p.get("gallery", [])],
     }
 
 
@@ -264,6 +269,7 @@ def page_v3(SITE, PROJECTS, URL, version):
               </button>
             </li>
           </ul>
+          <div class="about-logos logos" aria-label="Brands we have collaborated with">{logos}</div>
         </article>
 
         <article class="view view-work" data-view-panel="work">

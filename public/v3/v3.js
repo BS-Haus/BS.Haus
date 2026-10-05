@@ -271,7 +271,9 @@
     const facts = [["Client", p.client], ["Services", p.services], ["Industry", p.industry], [p.partner ? "With" : "Year", p.partner || p.year || "—"]];
     const media = [
       ...(p.video ? [`<figure class="full"><video src="${esc(p.video)}" muted loop playsinline autoplay preload="metadata" poster="${esc(p.cover)}"></video></figure>`] : []),
-      ...p.gallery.map((g) => `<figure class="${g.full ? "full" : ""}"><img src="${esc(g.src)}" alt="${esc(p.title)}" loading="lazy" decoding="async"></figure>`),
+      ...p.gallery.map((g) => g.video
+        ? `<figure class="${g.full ? "full" : ""}"><video src="${esc(g.video)}" poster="${esc(g.poster)}" muted loop playsinline autoplay preload="metadata"></video></figure>`
+        : `<figure class="${g.full ? "full" : ""}"><img src="${esc(g.src)}" alt="${esc(p.title)}" loading="lazy" decoding="async"></figure>`),
     ].join("");
     const el = document.createElement("article");
     el.dataset.doc = p.slug;

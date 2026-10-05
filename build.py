@@ -379,6 +379,12 @@ def page_project(p, nxt):
         )
     for i, img in enumerate(p.get("gallery", [])):
         cls = "full" if img.get("full") else ""
+        if img.get("video"):
+            gallery.append(
+                f'<figure class="{cls} reveal"><video data-autoplay muted loop playsinline preload="none" poster="{media_url(img["poster"])}" '
+                f'aria-label="{e(p["title"])} film"><source src="{media_url(img["video"])}" type="video/mp4"></video></figure>'
+            )
+            continue
         gallery.append(
             f'<figure class="{cls} reveal"><img src="{media_url(img["src"])}" alt="{e(img.get("alt") or p["title"] + " — image " + str(i + 1))}" '
             f'loading="lazy" decoding="async"></figure>'
@@ -652,7 +658,7 @@ def build():
     today = date.today().isoformat()
     entries = [("/", [SITE["og_image"]] + [media_url(p["cover"]) for p in PROJECTS]), ("/work", [media_url(p["cover"]) for p in PROJECTS]),
                ("/services", []), ("/studio", ["/media/studio/hero.jpg", "/media/studio/founders.jpg"]), ("/contact", [])]
-    entries += [(f"/work/{p['slug']}", [media_url(p["cover"])] + [media_url(g["src"]) for g in p.get("gallery", [])]) for p in PROJECTS]
+    entries += [(f"/work/{p['slug']}", [media_url(p["cover"])] + [media_url(g["src"]) for g in p.get("gallery", []) if g.get("src")]) for p in PROJECTS]
     def url_xml(path, imgs):
         images = "".join(f"<image:image><image:loc>{URL}{i}</image:loc></image:image>" for i in imgs)
         return f"<url><loc>{URL}{path}</loc><lastmod>{today}</lastmod>{images}</url>"
