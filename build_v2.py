@@ -12,6 +12,7 @@ from datetime import date
 e = html.escape
 GSAP = "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0"
 ON = ' class="is-on"'
+THREE = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
 LENIS = "https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"
 
 
@@ -67,7 +68,11 @@ def page_v2(SITE, PROJECTS, URL, version):
         f'poster="{media(p["cover"])}" aria-hidden="true"{ON if i == 0 else ""}></video>'
         for i, p in enumerate(reel)
     )
-    cards = "\n".join(card(p, i, total) for i, p in enumerate(PROJECTS, 1))
+    reel_card = (
+        f'<article class="card card-reel" data-index="0"><div class="card-link" data-cursor="Drag">'
+        f'<div class="card-media"><img src="{media(reel[0]["cover"])}" alt="" class="is-on"></div></div></article>'
+    )
+    cards = reel_card + "\n" + "\n".join(card(p, i, total) for i, p in enumerate(PROJECTS, 1))
     titles = ['<p class="big-title is-on" data-index="0" aria-hidden="true">BS.HAUS</p>'] + [
         f'<p class="big-title" data-index="{i}" aria-hidden="true">{e(p["short_title"])}</p>'
         for i, p in enumerate(PROJECTS, 1)
@@ -84,7 +89,7 @@ def page_v2(SITE, PROJECTS, URL, version):
         for i, p in enumerate(PROJECTS, 1)
     ]
     index = "".join(
-        f'<li><button type="button" data-goto="{i}"><span>{i:02d}</span>{e(p["short_title"])}</button></li>'
+        f'<li><button type="button" data-goto="{i}" aria-label="{e(p["title"])}"><span>{i:02d}</span><b>{e(p["short_title"])}</b></button></li>'
         for i, p in enumerate(PROJECTS, 1)
     )
     loader_frames = "".join(
@@ -162,7 +167,7 @@ def page_v2(SITE, PROJECTS, URL, version):
 <main id="top">
 
 <section class="stage" id="work" aria-label="Showreel and selected work">
-  <div class="stage-pin">
+  <div class="stage-pin" data-cursor="Drag">
     <div class="reel" data-cursor="Scroll">{reel_videos}</div>
     <div class="cards">
 {cards}
@@ -218,6 +223,7 @@ def page_v2(SITE, PROJECTS, URL, version):
 
 <script src="{GSAP}/gsap.min.js" defer></script>
 <script src="{GSAP}/ScrollTrigger.min.js" defer></script>
+<script src="{THREE}" defer></script>
 <script src="{LENIS}" defer></script>
 <script src="/v2/v2.js?v={version}" defer></script>
 </body>

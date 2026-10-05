@@ -15,10 +15,10 @@
 
   --gutter: clamp(16px, 2vw, 28px);
   --radius: 12px;
-  --cw: min(60vw, 1080px);
+  --cw: min(50vw, 980px);
   --ease: cubic-bezier(0.19, 1, 0.22, 1);
 }
-@media (max-width: 760px) { :root { --cw: 88vw; } }
+@media (max-width: 760px) { :root { --cw: 76vw; } }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -108,10 +108,9 @@ a:hover .arrow { transform: translateX(4px); }
 .v2-on .card {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 46%;
   width: var(--cw);
   z-index: 3;
-  opacity: 0;
   will-change: transform, opacity;
 }
 .v2-on .card-info { display: none; }
@@ -170,25 +169,27 @@ a:hover .arrow { transform: translateX(4px); }
 .v2-on .hero-line span > i { display: inline-block; font-style: normal; }
 
 .v2-on .stage-index {
-  display: grid;
+  display: flex;
   position: absolute;
-  right: var(--gutter);
-  top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  top: calc(var(--card-bottom, 70vh) + 22px);
+  transform: translateX(-50%);
   z-index: 6;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2px;
+  gap: 4px;
   font-size: 12px;
   opacity: 0;
 }
-.stage-index button { display: flex; gap: 10px; justify-content: flex-end; color: var(--muted); padding: 2px 0; transition: color 0.3s; text-align: right; }
-.stage-index button span { font-variant-numeric: tabular-nums; opacity: 0.6; }
-.stage-index button:hover, .stage-index button.is-active { color: var(--fg); }
-@media (max-width: 1000px) { .v2-on .stage-index { display: none; } }
+.stage-index button { display: flex; gap: 6px; align-items: center; color: var(--muted); padding: 4px 6px; border-radius: 999px; font-variant-numeric: tabular-nums; transition: color 0.3s, background 0.3s; white-space: nowrap; }
+.stage-index button b { font-weight: 400; max-width: 0; overflow: hidden; transition: max-width 0.6s var(--ease); }
+.stage-index button:hover { color: var(--fg); }
+.stage-index button.is-active { color: var(--bg); background: var(--fg); padding: 4px 10px; }
+.stage-index button.is-active b { max-width: 14em; }
+@media (max-width: 760px) { .stage-index button:not(.is-active) { padding: 4px 3px; } }
 
-.v2-on .stage-progress { display: block; position: absolute; left: var(--gutter); top: 50%; width: 1px; height: 22vh; transform: translateY(-50%); background: var(--line); z-index: 6; opacity: 0; }
+.v2-on .stage-progress { display: none; }
 .stage-progress i { position: absolute; inset: 0 0 auto; height: 0; background: var(--fg); }
 .v2-on .scroll-hint { display: block; position: absolute; right: var(--gutter); bottom: 86px; margin: 0; z-index: 6; font-size: 12px; color: var(--fg); writing-mode: vertical-rl; letter-spacing: 0.08em; }
 
@@ -382,3 +383,14 @@ a:hover .arrow { transform: translateX(4px); }
 }
 
 @media (max-width: 760px) { .v2-on .stage-progress, .v2-on .scroll-hint { display: none; } }
+
+/* ---------------------------------------------------------------- the strip */
+.v2-on .stage-pin { touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+.v2-on .cards { position: absolute; inset: 0; z-index: 3; perspective: 1800px; }
+.card-reel { display: none; }
+.v2-on .card-reel { display: block; }
+.v2-on .card-media img { -webkit-user-drag: none; }
+.gl { position: absolute; inset: 0; z-index: 4; pointer-events: none; }
+.has-gl .card-media { opacity: 0; transition: none; }
+.has-gl .card.is-leaving .card-media { opacity: 1; }
+.v2-on .stage-pin.is-dragging { cursor: grabbing; }
