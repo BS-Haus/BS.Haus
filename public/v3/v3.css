@@ -309,9 +309,14 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .dock-app img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(255, 255, 255, 0.2) inset; }
 .dock-app::after { content: ""; position: absolute; left: 50%; bottom: -6px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--fg); opacity: 0; transition: opacity 0.3s; }
 .dock-app.is-open::after { opacity: 0.9; }
-.dock-studio, .dock-mail { display: grid; place-items: center; background: linear-gradient(160deg, #f6f3ee, #d9d4cb); color: #1b1a19; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
-.dock-studio .serif { font-size: 24px; line-height: 1; padding-bottom: 3px; }
-.dock-mail { background: linear-gradient(160deg, #8ab4ff, #4f7cf0); color: #fff; font-size: 22px; }
+.dock-app { display: grid; place-items: center; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(255, 255, 255, 0.22) inset; }
+.dock-app svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.app-studio { background: linear-gradient(160deg, #f6f3ee, #d6d0c6); color: #1b1a19; }
+.app-studio .serif { font-size: 24px; line-height: 1; padding-bottom: 3px; }
+.app-work { background: linear-gradient(160deg, #3a3836, #1d1c1b); color: #f5f4f1; }
+.app-work svg { fill: currentColor; stroke: none; }
+.app-services { background: linear-gradient(160deg, #c9d6ff, #7f9cf5); color: #14213f; }
+.app-contact { background: linear-gradient(160deg, #7ee0a4, #2fae6a); color: #08321b; }
 .dock-sep { width: 1px; align-self: stretch; margin: 4px 3px; background: rgba(255, 255, 255, 0.18); }
 .dock-tip {
   position: absolute;

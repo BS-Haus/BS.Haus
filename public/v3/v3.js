@@ -74,6 +74,8 @@
       b.classList.toggle("is-on", b.dataset.view === name || (name === "info" && b.dataset.open === current))
     );
     titleEl.textContent = title || VIEW_TITLES[name] || "BS.Haus";
+    const section = name === "info" ? "work" : name;
+    $$(".dock-app").forEach((b) => b.classList.toggle("is-open", b.dataset.view === section));
   };
 
   $$("[data-layout]").forEach((b) =>
@@ -143,7 +145,6 @@
         imgs[i].style.opacity = 1;
       }, 6500);
     }
-    $$(".dock-app").forEach((b) => b.classList.toggle("is-open", b.dataset.open === key));
   };
 
   if (fine) {
@@ -255,8 +256,8 @@
     const t = e.target.closest("[data-open], [data-view], [data-studio], [data-reel], [data-read], [data-light]");
     if (!t) return;
     if (t.matches("[data-open]")) { e.preventDefault(); openProject(t.dataset.open); }
-    else if (t.matches("[data-view]")) { setView(t.dataset.view); if (M > 0.3) scrollTo(0); }
     else if (t.matches("[data-studio]")) openStudio();
+    else if (t.matches("[data-view]")) { setView(t.dataset.view); if (M > 0.3) scrollTo(0); }
     else if (t.matches("[data-reel]")) { setBg("reel"); }
     else if (t.matches("[data-read]")) scrollTo(docStart(), { duration: 1.8 });
     else if (t.matches("[data-light]")) {
