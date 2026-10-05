@@ -30,9 +30,9 @@ BUILD_VERSION = date.today().strftime("%Y%m%d")
 e = html.escape
 
 
-def fraktur(text):
-    """Wrap the BS monogram in the blackletter face, everywhere it appears in copy."""
-    return text.replace("𝕭𝕾", '<span class="fraktur">BS</span>')
+def accent(text):
+    """Set the BS monogram in the serif accent face wherever it appears in copy."""
+    return text.replace("𝕭𝕾", '<em class="serif">BS</em>')
 
 
 def media_url(path):
@@ -73,7 +73,7 @@ def head(title, description, path, image=None, schema=None):
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=UnifrakturMaguntia&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="/assets/site.css?v={BUILD_VERSION}">
 {ld}
 </head>
@@ -104,7 +104,7 @@ def meta_row(right=None):
     year = date.today().year
     return f"""<div class="meta-row">
   <span>BS.HAUS</span>
-  <span class="fraktur" aria-hidden="true">BS</span>
+  <em class="serif" aria-hidden="true">BS</em>
   <span>A Creative<br>Venture Studio</span>
   <span>{e(SITE['city'])}<br>Est. {SITE['founded']}</span>
   <span>{right or f'©{year}'}</span>
@@ -117,7 +117,7 @@ def footer():
     return f"""<footer class="footer wrap">
   <a class="footer-cta" href="/contact">
     <span class="eyebrow">Have a project in mind?</span>
-    <span class="display">Let’s build<br>the next <span class="fraktur">thing</span></span>
+    <span class="display">Let’s build<br>the next <em class="serif">thing</em></span>
   </a>
   <div class="footer-cols">
     <div>
@@ -134,7 +134,7 @@ def footer():
   </div>
   <div class="footer-base">
     <span>© {date.today().year} {e(SITE['legal_name'])} · Company no. {SITE['company_number']} · Registered in England &amp; Wales</span>
-    <span>Design is in our DNA ✦</span>
+    <span>London, UK</span>
   </div>
 </footer>
 <script src="/assets/site.js?v={BUILD_VERSION}" defer></script>
@@ -180,9 +180,9 @@ def work_card(p, extra_class="", heading="h3", summary=True):
     video = f' data-video="{media_url(p["video"])}"' if p.get("video") else ""
     small = f"<small>{e(p['summary'])}</small>" if summary else ""
     return f"""<a class="work-card reveal {extra_class}" href="/work/{p['slug']}"{video}>
-  <div class="media"><img src="{media_url(cover)}" alt="{e(p['cover_alt'])}" loading="lazy" decoding="async" width="1920" height="1080"></div>
+  <div class="media" style="view-transition-name:media-{p['slug']}"><img src="{media_url(cover)}" alt="{e(p['cover_alt'])}" loading="lazy" decoding="async" width="1920" height="1080"></div>
   <div class="pill" aria-hidden="true"><span>{e(p['title'])}</span><span class="tags">{e(tags)}</span><span class="view">View</span></div>
-  <{heading} class="display title">{small}{e(p['short_title'])}</{heading}>
+  <{heading} class="display title">{small}<span style="view-transition-name:title-{p['slug']}">{e(p['short_title'])}</span></{heading}>
 </a>"""
 
 
@@ -232,7 +232,9 @@ def archive_grid():
 
 def marquee():
     words = SITE["marquee"]
-    spans = "".join(f"<span>{e(w)}</span>" for w in words * 2)
+    spans = "".join(
+        f'<span class="{"serif" if i % 2 else "display"}">{e(w)}</span>' for i, w in enumerate(words * 2)
+    )
     return f'<div class="marquee" aria-hidden="true"><div class="marquee-track">{spans}</div></div>'
 
 
@@ -278,17 +280,11 @@ def page_home():
   </div>
 </section>
 
-<section class="section wrap">
-  <div class="intro-grid">
-    <div class="intro-side reveal">
-      <span class="eyebrow">( The studio )</span>
-      <img class="intro-orb" src="/media/studio/orb.jpg" alt="The BS monogram rendered inside a glowing wireframe globe" loading="lazy" width="720" height="720">
-    </div>
-    <div class="reveal">
-      <p class="lede">{fraktur(SITE['intro'])}</p>
-      <p class="lede lede-muted" style="margin-top:0.8em">{fraktur(SITE['intro_2'])}</p>
-      <p style="margin-top:40px"><a class="btn" href="/studio">About the studio <span class="arrow">→</span></a></p>
-    </div>
+<section class="section wrap intro">
+  <p class="lede reveal">{accent(SITE['intro'])}</p>
+  <div class="intro-foot reveal">
+    <p>{accent(SITE['intro_2'])}</p>
+    <a class="btn" href="/studio">About the studio <span class="arrow">→</span></a>
   </div>
 </section>
 
@@ -314,10 +310,6 @@ def page_home():
   {clients_grid()}
 </section>
 
-<section class="section wrap" aria-labelledby="process-h">
-  <div class="section-head reveal"><h2 id="process-h" class="display">Design is<br>in our <span class="fraktur">DNA</span></h2><span class="count">Process</span></div>
-  {process_grid()}
-</section>
 </main>
 """
     out += footer()
@@ -345,8 +337,7 @@ def page_work():
     out += nav("/work")
     out += f"""<main id="main">
 <section class="page-head wrap">
-  {meta_row(f'({len(PROJECTS):02d}) Projects')}
-  <h1 class="display" style="margin-top:clamp(40px,7vw,110px)">Our work</h1>
+  <h1 class="display">Our work</h1>
   <p class="lede">Brand worlds, digital products and experiences — built with founders, start-ups and global brands across fashion, art, technology and culture.</p>
 </section>
 <section class="wrap" style="padding-bottom:clamp(40px,6vw,80px)">
@@ -411,25 +402,18 @@ def page_project(p, nxt):
     out += nav("/work")
     out += f"""<main id="main">
 <article>
-<header class="case-hero wrap">
-  <div>
-    {meta_row(e(p.get('year', '')))}
-    <div class="case-facts" style="margin-top:clamp(32px,4vw,64px)">
-      <p class="eyebrow"><a class="link-u" href="/work">← All work</a></p>
-      <dl class="facts">{facts_html}</dl>
-    </div>
+<header class="case-hero">
+  <div class="case-media" style="view-transition-name:media-{p['slug']}">
+    <img src="{media_url(p['cover'])}" alt="{e(p['cover_alt'])}" decoding="async" fetchpriority="high" width="1920" height="1080">
   </div>
-  <h1 class="display case-title"><span class="client-of">{e(p['summary'])}</span>{e(p['short_title'])}</h1>
+  <a class="eyebrow link-u case-back" href="/work">← All work</a>
+  <div class="case-head wrap">
+    <h1 class="display case-title"><span class="client-of">{e(p['summary'])}</span><span style="view-transition-name:title-{p['slug']}">{e(p['short_title'])}</span></h1>
+  </div>
 </header>
 
-<section class="wrap" aria-label="Project imagery">
-  <div class="gallery">
-    <figure class="full reveal"><img src="{media_url(p['cover'])}" alt="{e(p['cover_alt'])}" decoding="async" fetchpriority="high"></figure>
-  </div>
-</section>
-
 <section class="section wrap">
-  <div class="split reveal"><h2 class="display">The brief</h2><div class="prose">{body}</div></div>
+  <div class="split reveal"><dl class="facts">{facts_html}</dl><div class="prose">{body}</div></div>
   <div class="split reveal"><h2 class="display">What we did</h2><div class="prose">{outcomes}</div></div>
 </section>
 
@@ -485,8 +469,7 @@ def page_services():
     out += nav("/services")
     out += f"""<main id="main">
 <section class="page-head wrap">
-  {meta_row('Services')}
-  <h1 class="display" style="margin-top:clamp(40px,7vw,110px)">What we do</h1>
+  <h1 class="display">What we do</h1>
   <p class="lede">{e(SITE['services_intro'])}</p>
 </section>
 {marquee()}
@@ -515,9 +498,8 @@ def page_studio():
     out += nav("/studio")
     out += f"""<main id="main">
 <section class="page-head wrap">
-  {meta_row('Studio')}
-  <h1 class="display" style="margin-top:clamp(40px,7vw,110px)">The <span class="fraktur">BS</span> Haus</h1>
-  <p class="lede">{fraktur(SITE['intro'])}</p>
+  <h1 class="display">The <em class="serif">BS</em> Haus</h1>
+  <p class="lede">{accent(SITE['intro'])}</p>
 </section>
 <section class="wrap reveal">
   <div class="gallery"><figure class="full"><img src="/media/studio/hero.jpg" alt="Chrome 3D BS lettering — the BS.Haus brand mark" loading="lazy"></figure></div>
@@ -525,7 +507,7 @@ def page_studio():
 <section class="section wrap">
   <div class="split reveal">
     <h2 class="display">Who we are</h2>
-    <div class="prose">{''.join(f'<p>{fraktur(e(x))}</p>' for x in SITE['about'])}</div>
+    <div class="prose">{''.join(f'<p>{accent(e(x))}</p>' for x in SITE['about'])}</div>
   </div>
   <div class="split reveal">
     <h2 class="display">Founders</h2>
@@ -547,7 +529,7 @@ def page_studio():
   {clients_grid()}
 </section>
 <section class="section wrap" aria-labelledby="process-h">
-  <div class="section-head reveal"><h2 id="process-h" class="display">Design is<br>in our <span class="fraktur">DNA</span></h2><span class="count">Process</span></div>
+  <div class="section-head reveal"><h2 id="process-h" class="display">Design is<br>in our <em class="serif">DNA</em></h2><span class="count">Process</span></div>
   {process_grid()}
 </section>
 </main>
@@ -580,8 +562,7 @@ def page_contact():
     out += nav("/contact")
     out += f"""<main id="main">
 <section class="page-head wrap">
-  {meta_row('Contact')}
-  <h1 class="display" style="margin-top:clamp(40px,7vw,110px)">Say hello</h1>
+  <h1 class="display">Say hello</h1>
   <p class="lede">We partner with founders and leaders building what’s next. Tell us about your idea — we usually reply within two working days.</p>
 </section>
 <section class="wrap" style="padding-bottom:clamp(40px,6vw,80px)">
@@ -599,7 +580,7 @@ def page_404():
     out += nav("")
     out += """<main id="main">
 <section class="page-head wrap" style="min-height:70svh">
-  <h1 class="display">Lost in the <span class="fraktur">haus</span></h1>
+  <h1 class="display">Lost in the <em class="serif">haus</em></h1>
   <p class="lede">That page doesn’t exist — but plenty of good work does.</p>
   <p style="margin-top:32px"><a class="btn btn-solid" href="/work">See our work <span class="arrow">→</span></a></p>
 </section>

@@ -30,12 +30,12 @@
   "og_image": "/media/studio/og.jpg",
   "founders": [
     {
-      "name": "Ben Laing",
-      "role": "Co-founder · Creative & Product Direction"
-    },
-    {
       "name": "Sarah Stoutamire",
       "role": "Co-founder · Creative & Brand Direction"
+    },
+    {
+      "name": "Ben Laing",
+      "role": "Co-founder · Creative & Product Direction"
     }
   ],
   "intro": "𝕭𝕾.Haus is a creative venture studio, based in London, that partners with founders & leaders to build & design 0→1 experiences across fashion, art, technology and contemporary culture.",
