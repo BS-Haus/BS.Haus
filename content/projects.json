@@ -392,6 +392,149 @@
     ]
   },
   {
+    "slug": "meadow",
+    "title": "Meadow",
+    "short_title": "Meadow",
+    "client": "Meadow",
+    "year": "2025",
+    "industry": "Wellness, Consumer",
+    "services": "Brand Identity, Symbol System, Art Direction, Packaging, Social",
+    "tags": [
+      "Identity",
+      "Packaging",
+      "Art direction"
+    ],
+    "featured": false,
+    "summary": "A living system — the identity for a focus brand built around Micro and Macro.",
+    "cover": "work/meadow/cover.jpg",
+    "cover_alt": "Fisheye photograph of a flower field with the Meadow symbol at its centre",
+    "intro": [
+      "Meadow is an ecosystem — the culture, the community, the conversation — built around two products, Micro and Macro, that help you focus inward or expand outward.",
+      "Micro is for deep focus, balance and clarity; Macro is for perspective and reflection."
+    ],
+    "outcomes": [
+      "We built the identity around the idea of a living system: calm and simple above ground, with a network of connection and growth below.",
+      "The system spans the wordmark and symbol, fisheye campaign photography, app icons, a brushed-metal tin, holographic and kraft packaging, Macro/Micro posters and social."
+    ],
+    "gallery": [
+      {
+        "src": "work/meadow/01.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/02.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/03.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/04.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/05.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/06.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/07.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/08.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/09.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/10.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/11.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/12.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/13.jpg",
+        "full": true
+      }
+    ]
+  },
+  {
+    "slug": "sanctuary",
+    "title": "Relations — Sanctuary",
+    "short_title": "Sanctuary",
+    "client": "Relations",
+    "year": "2026",
+    "industry": "Music",
+    "services": "Creative Concept, Album Artwork, Typography, Single Covers, Visualisers",
+    "tags": [
+      "Artwork",
+      "Concept",
+      "Music"
+    ],
+    "featured": false,
+    "summary": "The anti-algo album — artwork for Relations’ first record in over a decade.",
+    "cover": "work/sanctuary/cover.jpg",
+    "cover_alt": "A foggy suburban street at dawn",
+    "intro": [
+      "Relations are releasing Sanctuary, their first album in over ten years. Against an algorithm fed by anger and rage, Sanctuary celebrates the quiet, analog experiences that reconnect people and open up new perspectives — the anti-algo album."
+    ],
+    "outcomes": [
+      "We developed the creative concept and final artwork: misty landscape photography, glitched and horizontally smeared, with widely spaced typography.",
+      "One piece of artwork runs across the album cover, single covers such as “The Drift” and “So Long”, streaming visualisers and physical editions."
+    ],
+    "gallery": [
+      {
+        "src": "work/sanctuary/01.jpg",
+        "full": true
+      },
+      {
+        "src": "work/sanctuary/02.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/03.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/04.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/06.jpg",
+        "full": true
+      },
+      {
+        "src": "work/sanctuary/07.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/08.jpg",
+        "full": false
+      },
+      {
+        "src": "work/sanctuary/09.jpg",
+        "full": false
+      }
+    ]
+  },
+  {
     "slug": "regent-rose",
     "title": "Regent+Rose",
     "short_title": "Regent+Rose",
@@ -479,60 +622,103 @@
   },
   {
     "slug": "amika-connect",
-    "title": "amika: Connect",
+    "title": "amika: connect",
     "short_title": "amika",
     "client": "amika",
     "industry": "Beauty & Haircare",
-    "services": "Event Visuals, Motion, Presentation Design",
+    "services": "Event Identity, Stage & LED Environment, Presentation System, Merch, Brand Playbook",
     "tags": [
       "Event",
-      "Motion",
-      "Decks"
+      "Identity",
+      "Merch"
     ],
-    "summary": "Event visuals, motion and presentation design for amika.",
+    "summary": "Game Time at the House of amika — the identity and world for amika’s annual conference.",
     "featured": false,
     "video": "reel/amika.mp4",
     "cover": "work/amika-connect/cover.jpg",
-    "cover_alt": "amika: connect on a large LED screen at a game-day event",
+    "cover_alt": "The amika: connect lockup on a pink-to-orange gradient",
     "intro": [
-      "amika came to us to bring its Connect events to life on screen and in the room, with a visual language that felt as vibrant and social as the brand itself."
+      "amika:connect is amika’s annual company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
+      "For 2026 the team gathered at the Hyatt Regency Hill Country in San Antonio under the theme “Game Time at the House of amika”."
     ],
     "outcomes": [
-      "We created motion-led stage visuals for amika: connect, alongside a series of presentation decks that carry the brand’s colour, energy and tone of voice across internal and partner moments."
+      "We built the whole conference world: a flexible amika:connect lockup, gradient key visuals, dot-matrix GAMEDAY typography and a stage and LED environment that wrapped every session.",
+      "The system carried through presentations, name badges and merch — jerseys numbered with each employee’s start year, Accolades varsity jackets and custom patches — all documented in a brand playbook for the team."
     ],
     "gallery": [
       {
         "src": "work/amika-connect/01.jpg",
-        "full": true
+        "full": false
       },
       {
         "src": "work/amika-connect/02.jpg",
         "full": true
+      },
+      {
+        "src": "work/amika-connect/03.jpg",
+        "full": true
+      },
+      {
+        "src": "work/amika-connect/04.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/06.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/07.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/08.jpg",
+        "full": true
+      },
+      {
+        "src": "work/amika-connect/09.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/10.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/11.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/12.jpg",
+        "full": false
       }
-    ]
+    ],
+    "year": "2026"
   },
   {
     "slug": "emma-reicher-earth-matrix",
-    "title": "Emma Reicher — Earth Matrix",
-    "short_title": "Earth Matrix",
+    "title": "Emma Reicher",
+    "short_title": "Emma Reicher",
     "client": "Emma Reicher",
-    "industry": "Wellness, Psychotherapy",
-    "services": "Visual Identity, Art Direction, Social",
+    "industry": "Wellness, Somatic Practice",
+    "services": "Brand Identity, 3D World, Website, Brochures, Social",
     "tags": [
       "Identity",
-      "Art direction",
-      "Social"
+      "3D",
+      "Web"
     ],
-    "summary": "A visual world for a group on dreamwork and deep listening.",
+    "summary": "A brand world for a Chi Kung and BodyMind practice — outgrowing your relationship to your mind.",
     "featured": false,
     "cover": "work/emma-reicher-earth-matrix/cover.jpg",
-    "cover_alt": "Earth Matrix poster — the title set in translucent type over a grass field",
+    "cover_alt": "The Emma Reicher wordmark over a sunlit forest path",
     "intro": [
-      "Emma Reicher runs Earth Matrix, a group for dreamwork and deep listening, integrating the healing potential of psychotherapy, maturation coaching and qigong."
+      "Emma Reicher is a Chi Kung teacher and BodyMind practitioner whose work speaks to people who sense there is more to reality than thought — an invitation to outgrow your relationship to your mind."
     ],
     "outcomes": [
-      "We created a visual identity built around the elements — with Earth, Water and Metal editions — setting translucent typography over natural textures.",
-      "The system extends into posters and social assets that invite people in gently: “A vision quest isn’t about doing more. It’s about shifting where you are seeing from.”"
+      "We built a brand world around The Totem: a family of sculptural, shape-shifting forms rendered in many materials, paired with an elemental colour system — Wood, Water, Earth, Metal and Fire.",
+      "The identity extends into a website of frosted-glass panels over open landscapes, programme “portals” such as Dreams Decoded and Vision Quest, brochures and Instagram templates for the Chi Kung Collective."
     ],
     "gallery": [
       {
@@ -541,7 +727,7 @@
       },
       {
         "src": "work/emma-reicher-earth-matrix/02.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/emma-reicher-earth-matrix/03.jpg",
@@ -549,8 +735,41 @@
       },
       {
         "src": "work/emma-reicher-earth-matrix/04.jpg",
-        "full": true
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/06.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/07.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/08.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/09.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/10.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/11.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/12.jpg",
+        "full": false
       }
-    ]
+    ],
+    "year": "2026"
   }
 ]
