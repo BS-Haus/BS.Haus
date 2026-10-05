@@ -221,5 +221,48 @@
       "title": "Glaze",
       "type": "Brand guidelines"
     }
+  ],
+  "help": [
+    {
+      "slug": "lisa-foundation",
+      "name": "LISA Foundation",
+      "line": "Took a Web3 art platform from idea to MVP — and kept building for two years."
+    },
+    {
+      "slug": "glaze-virgins",
+      "name": "Glaze",
+      "line": "Found an overlooked audience and launched the Virgins campaign around them."
+    },
+    {
+      "slug": "decathlon-design-egalite",
+      "name": "Decathlon",
+      "line": "Shaped an innovation framework and a festival world with SKEWED."
+    },
+    {
+      "slug": "figma-slides-infinite-scroll",
+      "name": "Figma",
+      "line": "Launched a community template for Figma Slides — The Infinite Scroll."
+    },
+    {
+      "slug": "erria",
+      "name": "Erria",
+      "line": "Rebuilt the brand and launched Erria 2.0, a marketplace for makers."
+    },
+    {
+      "slug": "regent-rose",
+      "name": "Regent+Rose",
+      "line": "Created a skincare brand from the wordmark up."
+    },
+    {
+      "slug": "amika-connect",
+      "name": "amika",
+      "line": "Brought amika: connect to life on stage and on screen."
+    }
+  ],
+  "v2_statement": "We are [chip:sarah] Sarah & Ben [chip:ben], a husband-and-wife studio in London. For over a decade we’ve partnered with founders and brands to build what doesn’t exist yet — *from first idea to launch, and beyond.*",
+  "reel_order": [
+    "amika-connect",
+    "erria",
+    "lisa-foundation"
   ]
 }

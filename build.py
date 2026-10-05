@@ -18,6 +18,8 @@ import sys
 from datetime import date
 from pathlib import Path
 
+from build_v2 import page_v2
+
 ROOT = Path(__file__).parent
 OUT = ROOT / "public"
 CONTENT = ROOT / "content"
@@ -615,6 +617,7 @@ def build():
         "contact.html": page_contact(),
         "404.html": page_404(),
     }
+    pages["v2/index.html"] = page_v2(SITE, PROJECTS, URL, BUILD_VERSION)
     for i, p in enumerate(PROJECTS):
         pages[f"work/{p['slug']}.html"] = page_project(p, PROJECTS[(i + 1) % len(PROJECTS)])
     for path, text in pages.items():
