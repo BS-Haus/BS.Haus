@@ -543,10 +543,8 @@
     ],
     "gallery": [
       {
-        "video": "clips/emma-reicher-film.mp4",
-        "poster": "clips/emma-reicher-film.jpg",
-        "full": false,
-        "caption": "Case film"
+        "src": "work/emma-reicher/site-home.jpg",
+        "full": true
       },
       {
         "video": "clips/emma-reicher-1.mp4",
@@ -554,11 +552,35 @@
         "full": true
       },
       {
-        "src": "work/emma-reicher/01.jpg",
+        "src": "work/emma-reicher/site-about.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-info.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-chi-kung.jpg",
         "full": true
       },
       {
-        "src": "work/emma-reicher/02.jpg",
+        "src": "work/emma-reicher/site-disarm.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-dreamweaving.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-earth-matrix.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-maturation.jpg",
+        "full": false
+      },
+      {
+        "src": "work/emma-reicher/site-therapy-group.jpg",
         "full": true
       },
       {
@@ -566,39 +588,12 @@
         "full": false
       },
       {
-        "src": "work/emma-reicher/04.jpg",
-        "full": false
-      },
-      {
-        "src": "work/emma-reicher/05.jpg",
-        "full": true
-      },
-      {
-        "src": "work/emma-reicher/06.jpg",
-        "full": false
-      },
-      {
-        "src": "work/emma-reicher/07.jpg",
-        "full": false
-      },
-      {
-        "src": "work/emma-reicher/08.jpg",
-        "full": false
-      },
-      {
-        "src": "work/emma-reicher/09.jpg",
-        "full": false
-      },
-      {
-        "src": "work/emma-reicher/10.jpg",
-        "full": false
-      },
-      {
         "src": "work/emma-reicher/11.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher/12.jpg",
+        "video": "clips/emma-reicher-film.mp4",
+        "poster": "clips/emma-reicher-film.jpg",
         "full": false
       },
       {
@@ -608,8 +603,14 @@
     ],
     "year": "2026",
     "screensaver": [
-      "work/emma-reicher/01.jpg",
-      "work/emma-reicher/05.jpg"
+      "work/emma-reicher/cover.jpg",
+      "work/emma-reicher/site-chi-kung.jpg",
+      "work/emma-reicher/site-therapy-group.jpg"
+    ],
+    "backdrop": [
+      "work/emma-reicher/site-chi-kung.jpg",
+      "work/emma-reicher/site-therapy-group.jpg",
+      "work/emma-reicher/site-disarm.jpg"
     ]
   }
 ]
