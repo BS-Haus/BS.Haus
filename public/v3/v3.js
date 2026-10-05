@@ -94,12 +94,7 @@
     el.className = "bg-layer";
     el.dataset.bg = key;
     if (key === "reel") {
-      const v = document.createElement("video");
-      Object.assign(v, { muted: true, playsInline: true, preload: "auto" });
-      let i = 0;
-      v.src = DATA.reel[0];
-      v.addEventListener("ended", () => { i = (i + 1) % DATA.reel.length; v.src = DATA.reel[i]; v.play().catch(() => {}); });
-      el.append(v);
+      el.innerHTML = '<img class="reel-a" alt=""><img class="reel-b" alt=""><video class="reel-v" muted playsinline preload="auto"></video>';
     } else {
       const p = P[key];
       if (p.video) {
@@ -128,14 +123,16 @@
     if (key === bgKey) return;
     const next = layers[key] || (layers[key] = makeLayer(key));
     const prev = layers[bgKey];
+    if (bgKey === "reel") Saver.halt();
     bgKey = key;
     clearInterval(bgCycle);
+    if (key === "reel") Saver.run(next);
     requestAnimationFrame(() => {
       next.classList.add("is-on");
       prev?.classList.remove("is-on");
       gsap.fromTo(next, { scale: 1.08 }, { scale: 1, duration: 2.6, ease: "expo.out" });
     });
-    $$("video", desktop).forEach((v) => (v.closest(".bg-layer") === next ? v.play().catch(() => {}) : v.pause()));
+    $$("video", desktop).forEach((v) => (v.closest(".bg-layer") === next && key !== "reel" ? v.play().catch(() => {}) : v.pause()));
     const imgs = $$("img", next);
     if (imgs.length > 1) {
       let i = 0;
@@ -146,6 +143,89 @@
       }, 6500);
     }
   };
+
+  // ------------------------------------------------------------ screensaver: a fast montage of every project
+  const hud = $(".reel-hud");
+  const hudNow = $(".reel-now", hud);
+  const hudCount = $(".reel-count", hud);
+  const hudBar = $(".reel-progress", hud);
+  const Saver = (() => {
+    const items = DATA.montage;
+    let i = 0, timer = 0, el = null, front = "a", token = 0;
+    const STILL = 1100, CLIP = 3600;
+    const preload = (k) => { const it = items[k % items.length]; if (it.type === "img") { const im = new Image(); im.src = it.src; } };
+    const show = () => {
+      const my = ++token;
+      const it = items[i % items.length];
+      const n = (i % items.length) + 1;
+      hudNow.textContent = it.label;
+      hudCount.textContent = `${String(n).padStart(2, "0")} / ${items.length}`;
+      gsap.fromTo(hudBar, { width: "0%" }, { width: "100%", duration: (it.type === "video" ? CLIP : STILL) / 1000, ease: "none", overwrite: true });
+      const a = $(".reel-a", el), b = $(".reel-b", el), v = $(".reel-v", el);
+      const advance = (ms) => { timer = setTimeout(() => { if (my === token) { i++; show(); } }, ms); };
+      if (it.type === "img") {
+        const target = front === "a" ? b : a;
+        const done = () => {
+          if (my !== token) return;
+          target.classList.add("is-front");
+          (target === a ? b : a).classList.remove("is-front");
+          v.classList.remove("is-front");
+          v.pause();
+          gsap.fromTo(target, { scale: 1.06 }, { scale: 1, duration: STILL / 1000 + 0.4, ease: "power2.out" });
+          front = target === a ? "a" : "b";
+          preload(i + 1);
+          advance(STILL);
+        };
+        target.onload = done;
+        target.onerror = () => { i++; show(); };
+        target.src = it.src;
+        if (target.complete && target.naturalWidth) { target.onload = null; done(); }
+      } else {
+        v.src = it.src;
+        v.currentTime = 0;
+        v.onplaying = () => {
+          if (my !== token) return;
+          v.classList.add("is-front");
+          a.classList.remove("is-front");
+          b.classList.remove("is-front");
+          advance(CLIP);
+        };
+        v.onerror = () => { i++; show(); };
+        v.play().catch(() => { i++; show(); });
+      }
+    };
+    return {
+      run(layer) { el = layer; root.classList.add("reel-on"); show(); },
+      halt() { token++; clearTimeout(timer); root.classList.remove("reel-on"); el && $(".reel-v", el).pause(); },
+    };
+  })();
+
+  // The window docks while the screensaver plays (R) — independent of scroll (M).
+  let R = 0;
+  let saverReturn = "studio";
+  let saverManual = false;
+  const startSaver = ({ manual = true } = {}) => {
+    if (bgKey === "reel") return;
+    saverManual = manual;
+    saverReturn = bgKey;
+    setBg("reel");
+    gsap.to({ v: R }, { v: 1, duration: 1.3, ease: "power3.inOut", onUpdate() { R = this.targets()[0].v; } });
+  };
+  const stopSaver = () => {
+    if (bgKey !== "reel") return;
+    setBg(saverReturn);
+    gsap.to({ v: R }, { v: 0, duration: 1.2, ease: "power3.inOut", onUpdate() { R = this.targets()[0].v; } });
+  };
+
+  // Like a real OS: after a while with no input, the screensaver starts; any input wakes it.
+  const IDLE_MS = 45000;
+  let idleTimer = 0;
+  const poke = () => {
+    if (bgKey === "reel" && !saverManual) stopSaver();
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(() => { if (M < 0.1 && !document.hidden) startSaver({ manual: false }); }, IDLE_MS);
+  };
+  ["pointermove", "pointerdown", "keydown", "wheel", "touchstart"].forEach((t) => addEventListener(t, poke, { passive: true }));
 
   if (fine) {
     const qx = gsap.quickTo(desktop, "x", { duration: 1.2, ease: "power3" });
@@ -234,6 +314,7 @@
   const openProject = async (slug, { scroll = true } = {}) => {
     const p = P[slug];
     if (!p) return;
+    if (bgKey === "reel") { saverReturn = slug; stopSaver(); }
     current = slug;
     setBg(slug);
     renderInfo(p);
@@ -253,12 +334,13 @@
   };
 
   document.addEventListener("click", (e) => {
-    const t = e.target.closest("[data-open], [data-view], [data-studio], [data-reel], [data-read], [data-light]");
+    const t = e.target.closest("[data-open], [data-view], [data-studio], [data-reel], [data-reel-close], [data-read], [data-light]");
     if (!t) return;
     if (t.matches("[data-open]")) { e.preventDefault(); openProject(t.dataset.open); }
     else if (t.matches("[data-studio]")) openStudio();
     else if (t.matches("[data-view]")) { setView(t.dataset.view); if (M > 0.3) scrollTo(0); }
-    else if (t.matches("[data-reel]")) { setBg("reel"); }
+    else if (t.matches("[data-reel-close]")) stopSaver();
+    else if (t.matches("[data-reel]")) { bgKey === "reel" ? stopSaver() : startSaver({ manual: true }); }
     else if (t.matches("[data-read]")) scrollTo(docStart(), { duration: 1.8 });
     else if (t.matches("[data-light]")) {
       if (t.dataset.light === "max") toggleMax();
@@ -266,10 +348,14 @@
     }
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") openStudio();
+    if (e.key === "Escape") { if (bgKey === "reel") stopSaver(); else openStudio(); }
     if ((e.key === "Enter" || e.key === " ") && e.target.matches(".next-up")) { e.preventDefault(); openProject(e.target.dataset.open); }
   });
-  win.addEventListener("click", () => { if (win.classList.contains("is-mini")) scrollTo(0, { duration: 1.4 }); });
+  win.addEventListener("click", () => {
+    if (!win.classList.contains("is-mini")) return;
+    if (bgKey === "reel") stopSaver();
+    if (M > 0.05) scrollTo(0, { duration: 1.4 });
+  });
 
   // ------------------------------------------------------------ window geometry: open ⇄ minimised (scroll-scrubbed)
   let M = 0; // 0 = open, 1 = minimised
@@ -280,11 +366,14 @@
     const vw = innerWidth, vh = innerHeight;
     const w = win.offsetWidth, h = win.offsetHeight;
     const cy = MENUBAR + (vh - MENUBAR - 96) / 2;
-    const m = M < 0.5 ? 4 * M * M * M : 1 - Math.pow(-2 * M + 2, 3) / 2;
+    const D = Math.max(M, R);
+    const m = D < 0.5 ? 4 * D * D * D : 1 - Math.pow(-2 * D + 2, 3) / 2;
     // the dock opens a slot for the window, sized to the window's aspect
-    const tileW = vw < 760 ? 52 : 64;
-    slot.style.width = `${(tileW * clamp(M * 1.6, 0, 1)).toFixed(1)}px`;
-    dockEl.classList.toggle("has-win", M > 0.05);
+    const tileH = vw < 760 ? 40 : 48;
+    const tileScale = Math.min((vw < 760 ? 60 : 64) / w, tileH / h);
+    const tileW = w * tileScale;
+    slot.style.width = `${(tileW * clamp(D * 1.6, 0, 1)).toFixed(1)}px`;
+    dockEl.classList.toggle("has-win", D > 0.05);
     const s = slot.getBoundingClientRect();
     const tx = s.left + s.width / 2 - vw / 2;
     const ty = s.top + s.height / 2 - cy;
@@ -296,13 +385,13 @@
       transformOrigin: "50% 50%",
       x: lerp(ox, tx, m),
       y: lerp(oy, ty, m),
-      scale: lerp(1, tileW / w, m),
+      scale: lerp(1, tileScale, m),
       skewX: genie * -5,
       rotationX: genie * 14,
       transformPerspective: 1200,
     });
-    win.classList.toggle("is-mini", M > 0.6);
-    win.classList.toggle("is-docked", M > 0.45);
+    win.classList.toggle("is-mini", D > 0.6);
+    win.classList.toggle("is-docked", D > 0.45);
     cue.style.opacity = clamp(1 - M * 5, 0, 1);
     dim.style.opacity = 0.12 + 0.38 * clamp((scrollY() - spacer.offsetHeight * 0.6) / (innerHeight * 0.6), 0, 1);
   };
@@ -317,7 +406,7 @@
   // drag the window by its title bar
   let drag = null;
   $(".titlebar").addEventListener("pointerdown", (e) => {
-    if (M > 0.05 || e.target.closest(".lights") || e.button > 0) return;
+    if (M > 0.05 || e.target.closest(".lights") || e.button > 0 || e.pointerType !== "mouse") return;
     drag = { x: e.clientX - ox, y: e.clientY - oy };
     $(".titlebar").setPointerCapture(e.pointerId);
   });
@@ -381,8 +470,10 @@
   let seen = false;
   try { seen = sessionStorage.getItem("bs-v3-seen") === "1"; sessionStorage.setItem("bs-v3-seen", "1"); } catch {}
   const studioVid = $("video", layers.studio);
-  const imgReady = studioVid.readyState >= 3 ? Promise.resolve() : new Promise((r) => { studioVid.addEventListener("canplay", r, { once: true }); studioVid.addEventListener("error", r, { once: true }); });
-  studioVid.play().catch(() => {});
+  const imgReady = !studioVid || studioVid.readyState >= 3
+    ? Promise.resolve()
+    : new Promise((r) => { studioVid.addEventListener("canplay", r, { once: true }); studioVid.addEventListener("error", r, { once: true }); });
+  studioVid?.play().catch(() => {});
   const ready = Promise.race([Promise.all([imgReady, document.fonts.ready]), new Promise((r) => setTimeout(r, 4000))]);
   const minBoot = new Promise((r) => gsap.to(bar, { width: "82%", duration: seen ? 0.35 : 1.3, ease: "power2.inOut", onComplete: r }));
 

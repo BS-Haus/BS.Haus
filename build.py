@@ -28,7 +28,17 @@ CONTENT = ROOT / "content"
 SITE = json.loads((CONTENT / "site.json").read_text())
 PROJECTS = json.loads((CONTENT / "projects.json").read_text())
 URL = SITE["url"].rstrip("/")
-BUILD_VERSION = date.today().strftime("%Y%m%d")
+def _asset_hash():
+    """Cache-buster derived from the CSS/JS contents, so any edit busts browser caches."""
+    import hashlib
+    h = hashlib.sha1()
+    for f in sorted(list(OUT.glob("assets/*.*")) + list(OUT.glob("v2/*.*")) + list(OUT.glob("v3/*.*"))):
+        if f.suffix in (".css", ".js"):
+            h.update(f.read_bytes())
+    return h.hexdigest()[:10]
+
+
+BUILD_VERSION = _asset_hash()
 
 e = html.escape
 

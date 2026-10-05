@@ -57,9 +57,16 @@ def page_v3(SITE, PROJECTS, URL, version):
     total = len(PROJECTS)
     order = {slug: i for i, slug in enumerate(SITE.get("reel_order", []))}
     reel = sorted((p for p in PROJECTS if p.get("video")), key=lambda p: order.get(p["slug"], 99))
+    montage = []
+    for p in PROJECTS:
+        if p.get("video"):
+            montage.append({"type": "video", "src": media(p["video"]), "label": p["title"], "slug": p["slug"]})
+        frames = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full")][:2]
+        montage += [{"type": "img", "src": media(f), "label": p["title"], "slug": p["slug"]} for f in frames]
     data = {
         "projects": [project_data(p) for p in PROJECTS],
         "reel": [media(p["video"]) for p in reel],
+        "montage": montage,
         "studio": {"bg": "/media/studio/studio.jpg", "bgPortrait": "/media/studio/studio-portrait.jpg"},
     }
 
@@ -124,7 +131,7 @@ def page_v3(SITE, PROJECTS, URL, version):
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=UnifrakturMaguntia&display=swap">
 <link rel="preload" as="image" href="/media/studio/studio-video-poster.jpg">
 <link rel="stylesheet" href="/v3/v3.css?v={version}">
 <script>
@@ -147,13 +154,14 @@ def page_v3(SITE, PROJECTS, URL, version):
 <div class="desktop-dim" aria-hidden="true"></div>
 
 <header class="menubar">
-  <button type="button" class="mb-mark" data-studio aria-label="BS.Haus — studio home"><em class="serif">BS</em></button>
+  <button type="button" class="mb-mark" data-studio aria-label="BS.Haus — studio home"><span class="logo-bs">BS</span></button>
   <nav class="mb-menu" aria-label="Primary">
     <button type="button" data-view="about">Studio</button>
     <button type="button" data-view="work">Work</button>
     <button type="button" data-view="services">Services</button>
     <button type="button" data-view="contact">Contact</button>
   </nav>
+  <button type="button" class="mb-reel" data-reel>▶ Screensaver</button>
   <div class="mb-status">
     <span class="mb-avail"><i></i>Available for new projects</span>
     <span data-date></span>
@@ -189,12 +197,15 @@ def page_v3(SITE, PROJECTS, URL, version):
         <article class="view view-about is-on" data-view-panel="about">
           <p class="v-label">About</p>
           <p class="v-statement">{statement(SITE['v2_statement'])}</p>
-          <ul class="tiles">
+          <ul class="tiles tiles-3">
             <li><span>Founded</span><b>{SITE['founded']}</b></li>
             <li><span>Based in</span><b>Haggerston, London</b></li>
             <li><span>Selected work</span><b>{total:02d} projects</b></li>
-            <li class="tile-reel"><button type="button" data-reel><span>Showreel ’{str(date.today().year)[2:]}</span><b>▶ Play on desktop</b></button></li>
           </ul>
+          <button type="button" class="reel-card" data-reel aria-label="Play the screensaver">
+            <video src="{media(reel[0]['video'])}" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
+            <span class="reel-card-label"><i>▶</i><span><b>Play the screensaver</b><small>A loop through everything we’ve made — {total} projects</small></span></span>
+          </button>
           <p class="v-label" style="margin-top:28px">Recent work</p>
           <ul class="recent">{recent}</ul>
         </article>
@@ -267,9 +278,15 @@ def page_v3(SITE, PROJECTS, URL, version):
   <noscript><p class="noscript-links"><a href="/work">All work</a> · <a href="/">Classic site</a></p></noscript>
 </main>
 
+<div class="reel-hud" aria-live="polite">
+  <span class="reel-rec"></span><span class="reel-now">Screensaver</span><span class="reel-count"></span>
+  <button type="button" class="reel-close" data-reel-close aria-label="Close the screensaver">Close ✕</button>
+  <i class="reel-progress"></i>
+</div>
+
 <nav class="dock" aria-label="Sections">
   <ul>
-    <li><button type="button" class="dock-app app-studio is-open" data-studio data-view="about" data-label="Studio"><em class="serif">BS</em></button></li>
+    <li><button type="button" class="dock-app app-studio is-open" data-studio data-view="about" data-label="Studio"><span class="logo-bs">BS</span></button></li>
     <li><button type="button" class="dock-app app-work" data-view="work" data-label="Work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6"/></svg></button></li>
     <li><button type="button" class="dock-app app-services" data-view="services" data-label="Services"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v19M2.5 12h19M5.3 5.3l13.4 13.4M18.7 5.3 5.3 18.7"/></svg></button></li>
     <li><button type="button" class="dock-app app-contact" data-view="contact" data-label="Contact"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></button></li>

@@ -454,3 +454,77 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 @keyframes boot-sweep { from { background-position: 130% 0; } to { background-position: -30% 0; } }
 @keyframes boot-float { 50% { transform: translateY(-6px) scale(1.015); } }
 @media (prefers-reduced-motion: reduce) { .boot-logo, .boot-shine { animation: none; } }
+
+/* mobile: the tab row hugs its content and the view fills the rest */
+@media (max-width: 760px) {
+  .v3-on .win-body { grid-template-rows: auto minmax(0, 1fr); }
+  .v3-on .sidebar { overflow-y: hidden; scrollbar-width: none; }
+  .v3-on .titlebar { cursor: default; }
+  .lights { gap: 7px; }
+}
+
+/* ---------------------------------------------------------------- showreel */
+.tiles-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .tiles-3 { grid-template-columns: 1fr 1fr; } .tiles-3 li:last-child { grid-column: span 2; } }
+.reel-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  aspect-ratio: 16 / 5;
+  min-height: 120px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.18) inset, 0 18px 40px -18px rgba(0, 0, 0, 0.7);
+  isolation: isolate;
+}
+.reel-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s var(--ease); }
+.reel-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(0,0,0,0.65), rgba(0,0,0,0.05) 70%); }
+.reel-card:hover video { transform: scale(1.05); }
+.reel-card-label { position: absolute; left: 18px; bottom: 16px; display: flex; align-items: center; gap: 14px; }
+.reel-card-label i { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--fg); color: #151413; font-style: normal; font-size: 15px; padding-left: 3px; box-shadow: 0 0 0 0 rgba(255,255,255,0.5); animation: reel-ping 2.2s ease-out infinite; }
+.reel-card-label b { display: block; font-size: 16px; font-weight: 600; }
+.reel-card-label small { display: block; font-size: 12px; color: rgba(255,255,255,0.75); }
+@keyframes reel-ping { 0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.45); } 70%, 100% { box-shadow: 0 0 0 14px rgba(255,255,255,0); } }
+
+.mb-reel { padding: 2px 10px; border-radius: 999px; background: var(--fg); color: #151413; font-size: 12px; font-weight: 600; }
+.mb-reel:hover { background: #fff; }
+.v3-on .reel-on .mb-reel { background: #ff5f57; color: #fff; }
+
+.reel-hud {
+  position: fixed;
+  left: 50%;
+  bottom: 92px;
+  z-index: 62;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(22, 21, 20, 0.6);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  backdrop-filter: blur(20px) saturate(170%);
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.16) inset;
+  transform: translate(-50%, 20px);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 0.4s var(--ease), transform 0.6s var(--ease), visibility 0.4s;
+}
+.reel-on .reel-hud { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.reel-rec { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; animation: pulse 1.6s ease-in-out infinite; }
+.reel-now { font-weight: 500; white-space: nowrap; max-width: 46vw; overflow: hidden; text-overflow: ellipsis; }
+.reel-count { color: var(--faint); font-variant-numeric: tabular-nums; }
+.reel-close { padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.12); font-size: 12px; }
+.reel-progress { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--fg); }
+.reel-on .scroll-cue { opacity: 0 !important; }
+.bg-layer .reel-a, .bg-layer .reel-b, .bg-layer .reel-v { opacity: 0; transition: opacity 0.35s ease; }
+.bg-layer .is-front { opacity: 1; }
+@media (max-width: 760px) { .reel-hud { bottom: 78px; } .mb-reel { margin-left: auto; } }
+
+/* company logo: the blackletter BS lockup (navigation only; body copy keeps the serif) */
+.logo-bs { font-family: "UnifrakturMaguntia", var(--font-serif); font-style: normal; font-weight: 400; letter-spacing: 0; line-height: 1; }
+.mb-mark .logo-bs { font-size: 19px; display: block; padding-top: 1px; }
+.app-studio .logo-bs { font-size: 25px; padding-bottom: 2px; }
+@media (max-width: 760px) { .app-studio .logo-bs { font-size: 21px; } }
