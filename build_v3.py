@@ -97,6 +97,7 @@ def project_data(p):
         "year": p.get("year", ""),
         "partner": p.get("partner", ""),
         "cover": media(p["cover"]),
+        "backdrop": [media(x) for x in p.get("backdrop", [])],
         "video": media(p["video"]) if p.get("video") else "",
         "gallery": [({"video": media(g["video"]), "poster": media(g["poster"]), "full": g.get("full", False)} if g.get("video")
                      else {"src": media(g["src"]), "full": g.get("full", False)}) for g in p.get("gallery", [])],

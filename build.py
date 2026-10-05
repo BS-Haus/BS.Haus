@@ -618,11 +618,15 @@ def page_404():
 WEBP_ATTR = re.compile(r'((?:src|poster|data-preview)="|"(?:cover|src)": ")(/media/[^"]+?)\.(?:jpe?g|png)(?=")')
 
 
+WEBP_LIST = re.compile(r'([\[,] ?")(/media/[^"]+?)\.(?:jpe?g|png)(?=")')  # paths inside JSON arrays (e.g. backdrops)
+
+
 def prefer_webp(text):
     def swap(m):
         webp = OUT / (m.group(2).lstrip("/") + ".webp")
         return f"{m.group(1)}{m.group(2)}.webp" if webp.exists() else m.group(0)
-    return WEBP_ATTR.sub(swap, text)
+    text = WEBP_ATTR.sub(swap, text)
+    return WEBP_LIST.sub(swap, text)
 
 
 def write(path, text):

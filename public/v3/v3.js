@@ -125,7 +125,7 @@
         el.append(v);
       } else {
         // a slow slideshow of the project's full-bleed frames
-        const srcs = [p.cover, ...p.gallery.filter((g) => g.full).map((g) => g.src)].slice(0, 4);
+        const srcs = (p.backdrop && p.backdrop.length ? p.backdrop : [p.cover, ...p.gallery.filter((g) => g.full && g.src).map((g) => g.src)]).slice(0, 4);
         srcs.forEach((src, i) => {
           const img = new Image();
           img.src = src;

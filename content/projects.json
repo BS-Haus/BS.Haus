@@ -369,7 +369,7 @@
     "featured": false,
     "summary": "A living system — a calm, design-led wellness brand built around Micro and Macro.",
     "cover": "work/meadow/cover.jpg",
-    "cover_alt": "The meadow wordmark under a fisheye sky with the symbol at its centre",
+    "cover_alt": "“A living system” — a fisheye flower field with the Meadow symbol at its centre",
     "intro": [
       "Meadow is a Lisbon-based brand bringing calm, science-informed microdosing to people across Europe, built around two kits: Micro, for focus and clarity, and Macro, for perspective and reflection.",
       "The brief was to stand apart from a category that feels either spiritual or synthetic — to be a gentle guide, not a guru — for design-minded professionals aged 25–40, with the ambition of becoming Europe’s most trusted name in the space."
@@ -380,16 +380,11 @@
     ],
     "gallery": [
       {
-        "video": "clips/meadow-1.mp4",
-        "poster": "clips/meadow-1.jpg",
-        "full": true
-      },
-      {
-        "src": "work/meadow/01.jpg",
-        "full": true
-      },
-      {
         "src": "work/meadow/02.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/14.jpg",
         "full": true
       },
       {
@@ -440,7 +435,12 @@
     "screensaver": [
       "work/meadow/02.jpg",
       "work/meadow/07.jpg",
-      "work/meadow/01.jpg"
+      "work/meadow/cover.jpg"
+    ],
+    "backdrop": [
+      "work/meadow/02.jpg",
+      "work/meadow/07.jpg",
+      "work/meadow/cover.jpg"
     ]
   },
   {
