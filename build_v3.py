@@ -30,6 +30,7 @@ def statement(text):
         lambda m: f'<span class="chip"><img src="/media/studio/chip-{m.group(1)}.jpg" alt="" width="400" height="250"></span>',
         out,
     )
+    out = out.replace("[logo]", '<span class="logo-bs" aria-label="BS">BS</span>')
     return re.sub(r"\*(.+?)\*", r'<em class="serif">\1</em>', out)
 
 
