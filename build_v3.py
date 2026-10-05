@@ -206,7 +206,7 @@ def page_v3(SITE, PROJECTS, URL, version):
 </div>
 
 <div class="desktop" aria-hidden="true">
-  <div class="bg-layer is-on" data-bg="studio"><video class="studio-video" src="/media/studio/studio.mp4" poster="/media/studio/studio-video-poster.jpg" autoplay muted loop playsinline preload="auto"></video></div>
+  <div class="bg-layer is-on" data-bg="studio"><video class="studio-video" poster="/media/studio/studio-video-poster.jpg" autoplay muted loop playsinline preload="auto"></video><script>(function(v){{v.src=innerWidth<760?"/media/studio/studio-mobile.mp4":"/media/studio/studio.mp4";}})(document.currentScript.previousElementSibling)</script></div>
 </div>
 <div class="desktop-dim" aria-hidden="true"></div>
 
@@ -253,15 +253,17 @@ def page_v3(SITE, PROJECTS, URL, version):
         <article class="view view-about is-on" data-view-panel="about">
           <p class="v-label">About</p>
           <p class="v-statement">{statement(SITE.get('v3_statement') or SITE['v2_statement'])}</p>
-          <ul class="tiles tiles-3">
+          <ul class="tiles tiles-4">
             <li><span>Founded</span><b>{SITE['founded']}</b></li>
             <li><span>Based in</span><b>Haggerston, London</b></li>
             <li><span>Selected work</span><b>{total:02d} projects</b></li>
+            <li class="tile-reel">
+              <button type="button" class="reel-mini" data-reel aria-label="Play the show reel">
+                <span class="reel-mini-media" aria-hidden="true"></span>
+                <span class="reel-mini-label"><i>▶</i>Play show reel</span>
+              </button>
+            </li>
           </ul>
-          <button type="button" class="reel-card" data-reel aria-label="Play the screensaver">
-            <video src="{media(reel[0]['video'])}" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
-            <span class="reel-card-label"><i>▶</i><span><b>Play the screensaver</b><small>A loop through everything we’ve made — {total} projects</small></span></span>
-          </button>
         </article>
 
         <article class="view view-work" data-view-panel="work">
@@ -334,8 +336,8 @@ def page_v3(SITE, PROJECTS, URL, version):
 
 <div class="saver" aria-hidden="true"></div>
 <div class="reel-hud" aria-live="polite">
-  <span class="reel-rec"></span><span class="reel-now">Screensaver</span><span class="reel-count"></span>
-  <button type="button" class="reel-close" data-reel-close aria-label="Close the screensaver">Close ✕</button>
+  <span class="reel-rec"></span><span class="reel-now">Show reel</span><span class="reel-count"></span>
+  <button type="button" class="reel-close" data-reel-close aria-label="Close the show reel">Close ✕</button>
 </div>
 
 <nav class="dock" aria-label="Sections">

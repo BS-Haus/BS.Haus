@@ -219,6 +219,28 @@
     };
   })();
 
+  // The About tile previews what the show reel actually plays: a quiet flick through its stills.
+  const miniMedia = $(".reel-mini-media");
+  if (miniMedia) {
+    const stills = DATA.montage.filter((m) => m.type === "img").map((m) => m.src);
+    let k = 0;
+    const frames = stills.slice(0, 12).map((src, n) => {
+      const im = new Image();
+      im.alt = "";
+      im.loading = n < 2 ? "eager" : "lazy";
+      im.src = src;
+      if (n === 0) im.className = "is-on";
+      miniMedia.append(im);
+      return im;
+    });
+    setInterval(() => {
+      if (document.hidden || Saver.on || view !== "about") return;
+      frames[k].classList.remove("is-on");
+      k = (k + 1) % frames.length;
+      frames[k].classList.add("is-on");
+    }, 1700);
+  }
+
   let saverManual = false;
   const startSaver = ({ manual = true } = {}) => { if (Saver.on) return; saverManual = manual; Saver.run(); };
   const stopSaver = () => { if (Saver.on) Saver.halt(); };
@@ -483,7 +505,8 @@
     ? Promise.resolve()
     : new Promise((r) => { studioVid.addEventListener("canplay", r, { once: true }); studioVid.addEventListener("error", r, { once: true }); });
   studioVid?.play().catch(() => {});
-  const ready = Promise.race([Promise.all([imgReady, document.fonts.ready]), new Promise((r) => setTimeout(r, 4000))]);
+  // Never hold the boot screen for long: the studio film fades in whenever it's ready.
+  const ready = Promise.race([Promise.all([imgReady, document.fonts.ready]), new Promise((r) => setTimeout(r, 2500))]);
   const minBoot = new Promise((r) => gsap.to(bar, { width: "82%", duration: seen ? 0.35 : 1.3, ease: "power2.inOut", onComplete: r }));
 
   gsap.set(".menubar", { yPercent: -110 });
