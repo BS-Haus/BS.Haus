@@ -355,7 +355,7 @@
     "featured": false,
     "summary": "A living system — the identity for a focus brand built around Micro and Macro.",
     "cover": "work/meadow/cover.jpg",
-    "cover_alt": "Fisheye photograph of a flower field with the Meadow symbol at its centre",
+    "cover_alt": "The meadow wordmark under a fisheye sky with the symbol at its centre",
     "intro": [
       "Meadow is an ecosystem — the culture, the community, the conversation — built around two products, Micro and Macro, that help you focus inward or expand outward.",
       "Micro is for deep focus, balance and clarity; Macro is for perspective and reflection."
@@ -383,7 +383,7 @@
       },
       {
         "src": "work/meadow/05.jpg",
-        "full": true
+        "full": false
       },
       {
         "src": "work/meadow/06.jpg",
@@ -391,7 +391,7 @@
       },
       {
         "src": "work/meadow/07.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/meadow/08.jpg",
@@ -399,7 +399,7 @@
       },
       {
         "src": "work/meadow/09.jpg",
-        "full": true
+        "full": false
       },
       {
         "src": "work/meadow/10.jpg",
@@ -411,12 +411,17 @@
       },
       {
         "src": "work/meadow/12.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/meadow/13.jpg",
         "full": true
       }
+    ],
+    "screensaver": [
+      "work/meadow/02.jpg",
+      "work/meadow/07.jpg",
+      "work/meadow/01.jpg"
     ]
   },
   {
@@ -511,7 +516,7 @@
     "summary": "A brand world for a Chi Kung and BodyMind practice — outgrowing your relationship to your mind.",
     "featured": false,
     "cover": "work/emma-reicher-earth-matrix/cover.jpg",
-    "cover_alt": "The Emma Reicher wordmark over a sunlit forest path",
+    "cover_alt": "The Emma Reicher hero lockup over an overgrown garden path",
     "intro": [
       "Emma Reicher is a Chi Kung teacher and BodyMind practitioner whose work speaks to people who sense there is more to reality than thought — an invitation to outgrow your relationship to your mind."
     ],
@@ -538,7 +543,7 @@
       },
       {
         "src": "work/emma-reicher-earth-matrix/05.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/emma-reicher-earth-matrix/06.jpg",
@@ -567,8 +572,16 @@
       {
         "src": "work/emma-reicher-earth-matrix/12.jpg",
         "full": false
+      },
+      {
+        "src": "work/emma-reicher-earth-matrix/13.jpg",
+        "full": false
       }
     ],
-    "year": "2026"
+    "year": "2026",
+    "screensaver": [
+      "work/emma-reicher-earth-matrix/01.jpg",
+      "work/emma-reicher-earth-matrix/05.jpg"
+    ]
   }
 ]
