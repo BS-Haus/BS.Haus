@@ -451,7 +451,7 @@
     "featured": false,
     "video": "reel/amika.mp4",
     "cover": "work/amika-connect/cover.jpg",
-    "cover_alt": "The amika: connect lockup on a pink-to-orange gradient",
+    "cover_alt": "The amika:connect lockup on the main-stage LED wall with the GAMEDAY ticker",
     "intro": [
       "amika:connect is amika’s first amika-only company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
       "For February 2026 in San Antonio, the theme was “Game Time at the House of amika” — a Super Bowl-inspired signal that amika now plays at the top level."
@@ -467,16 +467,12 @@
         "full": true
       },
       {
-        "src": "work/amika-connect/01.jpg",
+        "src": "work/amika-connect/02.jpg",
         "full": false
       },
       {
-        "src": "work/amika-connect/02.jpg",
-        "full": true
-      },
-      {
         "src": "work/amika-connect/03.jpg",
-        "full": true
+        "full": false
       },
       {
         "src": "work/amika-connect/04.jpg",
@@ -488,7 +484,7 @@
       },
       {
         "src": "work/amika-connect/06.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/amika-connect/07.jpg",
@@ -496,11 +492,11 @@
       },
       {
         "src": "work/amika-connect/08.jpg",
-        "full": true
+        "full": false
       },
       {
         "src": "work/amika-connect/09.jpg",
-        "full": false
+        "full": true
       },
       {
         "src": "work/amika-connect/10.jpg",
@@ -513,9 +509,35 @@
       {
         "src": "work/amika-connect/12.jpg",
         "full": false
+      },
+      {
+        "src": "work/amika-connect/13.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/14.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/15.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/16.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/17.jpg",
+        "full": false
       }
     ],
-    "year": "2026"
+    "year": "2026",
+    "screensaver": [
+      "work/amika-connect/cover.jpg",
+      "work/amika-connect/02.jpg",
+      "work/amika-connect/09.jpg",
+      "work/amika-connect/15.jpg"
+    ]
   },
   {
     "slug": "emma-reicher",
