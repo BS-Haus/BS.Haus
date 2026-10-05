@@ -283,8 +283,8 @@ def page_v3(SITE, PROJECTS, URL, version):
   <div class="doc" id="doc">
     <article class="doc-studio" data-doc="studio">
       <header class="doc-hero">
-        <p class="doc-kicker">BS.Haus — design studio</p>
-        <h1 class="doc-title">A design studio <em class="serif">in London</em></h1>
+        <p class="doc-kicker">BS.Haus — creative studio</p>
+        <h1 class="doc-title">A creative studio <em class="serif">in London</em></h1>
       </header>
       <section class="glass doc-block">
         <div class="doc-cols">
