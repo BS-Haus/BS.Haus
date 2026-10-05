@@ -512,5 +512,7 @@
         onComplete() { place(); },
       }, "<0.15")
       .from($$(".view.is-on > *"), { y: 14, autoAlpha: 0, stagger: 0.06, duration: 0.9, ease: "expo.out" }, "<0.25");
+    // deep link from the old /bs-reel page: start straight into the screensaver
+    if (new URLSearchParams(location.search).has("screensaver")) tl.call(() => startSaver({ manual: true }));
   });
 })();

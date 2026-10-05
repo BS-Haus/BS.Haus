@@ -10,6 +10,8 @@ links to the classic case studies.
 """
 
 import html
+
+import seo
 import json
 import re
 from datetime import date
@@ -151,6 +153,11 @@ def page_v3(SITE, PROJECTS, URL, version):
     )
     a = SITE["address"]
     desc = SITE["description"]
+    website_ld = {"@context": "https://schema.org", "@type": "WebSite", "@id": URL + "/#website", "name": "BS.Haus", "url": URL + "/",
+                  "inLanguage": "en-GB", "publisher": {"@id": URL + "/#organization"}}
+    work_ld = {"@context": "https://schema.org", "@type": "ItemList", "name": "Selected work",
+               "itemListElement": [{"@type": "ListItem", "position": i, "url": f"{URL}/work/{p['slug']}", "name": p["title"]}
+                                   for i, p in enumerate(PROJECTS, 1)]}
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
 
     return f"""<!doctype html>
@@ -158,15 +165,27 @@ def page_v3(SITE, PROJECTS, URL, version):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BS.Haus — Studio OS</title>
+<title>BS.Haus — Creative Studio in London | Brand, Product &amp; Digital Design</title>
 <meta name="description" content="{e(desc)}">
-<meta name="robots" content="noindex">
 <link rel="canonical" href="{URL}/">
-<meta name="theme-color" content="#1b1a19">
-<meta property="og:title" content="BS.Haus — Creative Studio, London">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BS.Haus">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="{URL}/">
+<meta property="og:title" content="BS.Haus — Creative Studio in London">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{URL}{SITE['og_image']}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BS.Haus — Creative Studio in London">
+<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{URL}{SITE['og_image']}">
+{seo.icons()}
+{seo.analytics(SITE)}
+{seo.ld(seo.organization(SITE, URL), website_ld, work_ld)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=UnifrakturMaguntia&display=swap">
@@ -310,7 +329,7 @@ def page_v3(SITE, PROJECTS, URL, version):
     </article>
   </div>
 
-  <noscript><p class="noscript-links"><a href="/work">All work</a> · <a href="/">Classic site</a></p></noscript>
+  <noscript><p class="noscript-links"><a href="/work">All work</a> · <a href="/services">Services</a> · <a href="/studio">Studio</a> · <a href="/contact">Contact</a></p></noscript>
 </main>
 
 <div class="saver" aria-hidden="true"></div>

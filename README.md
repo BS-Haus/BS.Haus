@@ -30,6 +30,9 @@ Then open http://localhost:8000. Commit both `content/` and `public/`.
 
 ## Pages
 
+`/` is Studio OS (build_v3.py). The classic pages below are the indexable deep pages it links to; `/lab` (build_v2.py) is an experimental version kept out of search. Old Framer URLs (`/bs-studio`, `/bs-worldwide`, `/bs-reel`) 301-redirect via vercel.json. GA4 property: G-8MG0B2XXC0 (content/site.json → `ga4`).
+
+
 `/` home (showreel hero, intro, selected work, services, clients, process) · `/work` · `/work/<slug>` case studies · `/services` · `/studio` · `/contact` · `sitemap.xml`, `robots.txt`, JSON-LD (ProfessionalService, CreativeWork, Service) on every page.
 
 ## Deploy (Vercel)

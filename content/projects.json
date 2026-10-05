@@ -502,7 +502,7 @@
     "year": "2026"
   },
   {
-    "slug": "emma-reicher-earth-matrix",
+    "slug": "emma-reicher",
     "title": "Emma Reicher",
     "short_title": "Emma Reicher",
     "client": "Emma Reicher",
@@ -515,7 +515,7 @@
     ],
     "summary": "A brand world for a Chi Kung and BodyMind practice — outgrowing your relationship to your mind.",
     "featured": false,
-    "cover": "work/emma-reicher-earth-matrix/cover.jpg",
+    "cover": "work/emma-reicher/cover.jpg",
     "cover_alt": "The Emma Reicher hero lockup over an overgrown garden path",
     "intro": [
       "Emma Reicher is a Chi Kung teacher and BodyMind practitioner whose work speaks to people who sense there is more to reality than thought — an invitation to outgrow your relationship to your mind."
@@ -526,62 +526,62 @@
     ],
     "gallery": [
       {
-        "src": "work/emma-reicher-earth-matrix/01.jpg",
+        "src": "work/emma-reicher/01.jpg",
         "full": true
       },
       {
-        "src": "work/emma-reicher-earth-matrix/02.jpg",
+        "src": "work/emma-reicher/02.jpg",
         "full": true
       },
       {
-        "src": "work/emma-reicher-earth-matrix/03.jpg",
+        "src": "work/emma-reicher/03.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/04.jpg",
+        "src": "work/emma-reicher/04.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/05.jpg",
+        "src": "work/emma-reicher/05.jpg",
         "full": true
       },
       {
-        "src": "work/emma-reicher-earth-matrix/06.jpg",
+        "src": "work/emma-reicher/06.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/07.jpg",
+        "src": "work/emma-reicher/07.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/08.jpg",
+        "src": "work/emma-reicher/08.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/09.jpg",
+        "src": "work/emma-reicher/09.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/10.jpg",
+        "src": "work/emma-reicher/10.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/11.jpg",
+        "src": "work/emma-reicher/11.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/12.jpg",
+        "src": "work/emma-reicher/12.jpg",
         "full": false
       },
       {
-        "src": "work/emma-reicher-earth-matrix/13.jpg",
+        "src": "work/emma-reicher/13.jpg",
         "full": false
       }
     ],
     "year": "2026",
     "screensaver": [
-      "work/emma-reicher-earth-matrix/01.jpg",
-      "work/emma-reicher-earth-matrix/05.jpg"
+      "work/emma-reicher/01.jpg",
+      "work/emma-reicher/05.jpg"
     ]
   }
 ]

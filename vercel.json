@@ -10,7 +10,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     },
@@ -19,7 +19,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
         }
       ]
     },
@@ -35,6 +35,53 @@
           "value": "strict-origin-when-cross-origin"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/bs-studio",
+      "destination": "/studio",
+      "permanent": true
+    },
+    {
+      "source": "/bs-worldwide",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/bs-reel",
+      "destination": "/?screensaver=1",
+      "permanent": true
+    },
+    {
+      "source": "/v3",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/v3/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/v2",
+      "destination": "/lab",
+      "permanent": true
+    },
+    {
+      "source": "/v2/",
+      "destination": "/lab",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/work/emma-reicher-earth-matrix",
+      "destination": "/work/emma-reicher",
+      "permanent": true
     }
   ]
 }

@@ -3,7 +3,7 @@
   "legal_name": "BS.Haus",
   "url": "https://bs.haus",
   "tagline": "Creative Studio, London",
-  "description": "BS.Haus is a London creative studio partnering with founders and leaders to build and design 0→1 brands, digital products and experiences across fashion, art, technology and contemporary culture.",
+  "description": "BS.Haus is a creative studio in London designing brands, digital products and experiences from 0→1 for founders and global brands.",
   "keywords": [
     "Brand identity",
     "Product design",
@@ -213,5 +213,10 @@
     "erria",
     "lisa-foundation"
   ],
-  "v3_statement": "[logo] is a creative studio based in London, run by Ben [chip:ben] & Sarah [chip:sarah] — a husband-and-wife duo designing brands, digital products and experiences from 0→1 for founders and global brands."
+  "v3_statement": "[logo] is a creative studio based in London, run by Ben [chip:ben] & Sarah [chip:sarah] — a husband-and-wife duo designing brands, digital products and experiences from 0→1 for founders and global brands.",
+  "ga4": "G-8MG0B2XXC0",
+  "same_as": [
+    "https://www.instagram.com/bs.haus/",
+    "https://github.com/BS-Haus"
+  ]
 }

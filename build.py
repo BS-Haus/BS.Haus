@@ -12,6 +12,7 @@ The generated public/ folder is committed, so Vercel deploys it as-is
 """
 
 import html
+import re
 import json
 import shutil
 import sys
@@ -20,6 +21,7 @@ from pathlib import Path
 
 from build_v2 import page_v2
 from build_v3 import page_v3
+import seo
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "public"
@@ -63,7 +65,8 @@ def head(title, description, path, image=None, schema=None):
     canonical = URL + path
     og_image = URL + (image or SITE["og_image"])
     full_title = title if title.startswith(SITE["name"]) else f"{title} — {SITE['name']}"
-    schemas = [org_schema()] + ([schema] if schema else [])
+    extra = schema if isinstance(schema, list) else ([schema] if schema else [])
+    schemas = [seo.organization(SITE, URL)] + extra
     ld = "\n".join(
         f'<script type="application/ld+json">{json.dumps(s, ensure_ascii=False)}</script>' for s in schemas
     )
@@ -82,8 +85,14 @@ def head(title, description, path, image=None, schema=None):
 <meta property="og:description" content="{e(description)}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:image" content="{og_image}">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta name="twitter:title" content="{e(full_title)}">
+<meta name="twitter:description" content="{e(description)}">
+<meta name="twitter:image" content="{og_image}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+{seo.icons()}
+{seo.analytics(SITE)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Inter:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap">
@@ -326,10 +335,8 @@ def page_work():
     for i, p in enumerate(PROJECTS):
         cards.append(work_card(p, "wide" if i % 3 == 0 else "", heading="h2", summary=i % 3 == 0))
     out = head(
-        "Work",
-        f"Selected projects by {SITE['name']}: brand identity, product design, web, campaigns and experiences for "
-        + ", ".join(p["client"] for p in PROJECTS[:6])
-        + " and more.",
+        "Work — Brand, Product & Digital Design Case Studies",
+        f"Case studies from {SITE['name']}, a London creative studio: brand identity, product design, websites, campaigns and events for LISA, Glaze, Decathlon, Figma and more.",
         "/work",
         schema={
             "@context": "https://schema.org",
@@ -388,7 +395,15 @@ def page_project(p, nxt):
         description,
         f"/work/{p['slug']}",
         image=media_url(p["cover"]),
-        schema={
+        schema=[{
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": URL + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Work", "item": URL + "/work"},
+                {"@type": "ListItem", "position": 3, "name": p["title"], "item": f"{URL}/work/{p['slug']}"},
+            ],
+        }, {
             "@context": "https://schema.org",
             "@type": "CreativeWork",
             "name": p["title"],
@@ -398,7 +413,7 @@ def page_project(p, nxt):
             "creator": {"@id": URL + "/#organization"},
             "about": p["industry"],
             "keywords": ", ".join(p["tags"]),
-        },
+        }],
     )
     out += nav("/work")
     out += f"""<main id="main">
@@ -450,8 +465,8 @@ def page_services():
 </div>"""
         )
     out = head(
-        "Services — Brand, Product, Web & Experience Design",
-        "Strategy, design, experience and technology services from a London creative studio: brand platforms, visual identity, web design & development, campaigns, motion, 3D, AI and mixed reality.",
+        "Services — Brand Strategy, Identity, Web & Experience Design",
+        "Brand strategy, visual identity, web design and development, campaigns, motion, 3D and AI from BS.Haus — a creative studio in London working 0→1.",
         "/services",
         schema={
             "@context": "https://schema.org",
@@ -492,8 +507,8 @@ def page_studio():
         f'<div class="person reveal"><h3 class="display">{e(p["name"])}</h3><p>{e(p["role"])}</p></div>' for p in SITE["founders"]
     )
     out = head(
-        "Studio — About Us",
-        f"{SITE['name']} is a creative studio in London run by Ben Laing and Sarah Stoutamire, partnering with founders and leaders across fashion, art, technology and culture.",
+        "About the Studio — Creative Studio in London",
+        f"{SITE['name']} is a creative studio in Haggerston, London, run by Ben Laing and Sarah Stoutamire — designing brands, products and experiences since {SITE['founded']}.",
         "/studio",
     )
     out += nav("/studio")
@@ -557,7 +572,7 @@ def page_contact():
     )
     out = head(
         "Contact — Start a Project",
-        f"Start a project with {SITE['name']}. Email {SITE['email']} or book a call with our London studio.",
+        f"Start a project with {SITE['name']}, a creative studio in London. Email {SITE['email']}, book a call, or visit us at Mandarin Wharf, Haggerston.",
         "/contact",
     )
     out += nav("/contact")
@@ -594,7 +609,19 @@ def page_404():
 # ---------------------------------------------------------------- write
 
 
+WEBP_ATTR = re.compile(r'((?:src|poster|data-preview)="|"(?:cover|src)": ")(/media/[^"]+?)\.(?:jpe?g|png)(?=")')
+
+
+def prefer_webp(text):
+    def swap(m):
+        webp = OUT / (m.group(2).lstrip("/") + ".webp")
+        return f"{m.group(1)}{m.group(2)}.webp" if webp.exists() else m.group(0)
+    return WEBP_ATTR.sub(swap, text)
+
+
 def write(path, text):
+    if path.endswith(".html"):
+        text = prefer_webp(text)
     target = OUT / path
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(text)
@@ -609,24 +636,29 @@ def build():
         shutil.rmtree(work_dir)
 
     pages = {
-        "index.html": page_home(),
         "work/index.html": page_work(),
         "services.html": page_services(),
         "studio.html": page_studio(),
         "contact.html": page_contact(),
         "404.html": page_404(),
     }
-    pages["v2/index.html"] = page_v2(SITE, PROJECTS, URL, BUILD_VERSION)
-    pages["v3/index.html"] = page_v3(SITE, PROJECTS, URL, BUILD_VERSION)
+    pages["index.html"] = page_v3(SITE, PROJECTS, URL, BUILD_VERSION)
+    pages["lab/index.html"] = page_v2(SITE, PROJECTS, URL, BUILD_VERSION)
     for i, p in enumerate(PROJECTS):
         pages[f"work/{p['slug']}.html"] = page_project(p, PROJECTS[(i + 1) % len(PROJECTS)])
     for path, text in pages.items():
         write(path, text)
 
-    paths = ["/", "/work", "/services", "/studio", "/contact"] + [f"/work/{p['slug']}" for p in PROJECTS]
     today = date.today().isoformat()
-    urls = "".join(f"<url><loc>{URL}{p}</loc><lastmod>{today}</lastmod></url>" for p in paths)
-    write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+    entries = [("/", [SITE["og_image"]] + [media_url(p["cover"]) for p in PROJECTS]), ("/work", [media_url(p["cover"]) for p in PROJECTS]),
+               ("/services", []), ("/studio", ["/media/studio/hero.jpg", "/media/studio/founders.jpg"]), ("/contact", [])]
+    entries += [(f"/work/{p['slug']}", [media_url(p["cover"])] + [media_url(g["src"]) for g in p.get("gallery", [])]) for p in PROJECTS]
+    def url_xml(path, imgs):
+        images = "".join(f"<image:image><image:loc>{URL}{i}</image:loc></image:image>" for i in imgs)
+        return f"<url><loc>{URL}{path}</loc><lastmod>{today}</lastmod>{images}</url>"
+    urls = "".join(url_xml(p, i) for p, i in entries)
+    write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+          f'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">{urls}</urlset>\n')
     write("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {URL}/sitemap.xml\n")
     print(f"Built {len(pages)} pages → {OUT.relative_to(ROOT)}/")
 

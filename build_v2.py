@@ -6,6 +6,8 @@ it into the scroll-driven reel → project stage when GSAP is available.
 """
 
 import html
+
+import seo
 import re
 from datetime import date
 
@@ -126,7 +128,7 @@ def page_v2(SITE, PROJECTS, URL, version):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BS.Haus — The Reel</title>
+<title>BS.Haus — Lab: The Reel</title>
 <meta name="description" content="{e(desc)}">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="{URL}/">
@@ -134,7 +136,8 @@ def page_v2(SITE, PROJECTS, URL, version):
 <meta property="og:title" content="BS.Haus — Creative Studio, London">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:image" content="{URL}{SITE['og_image']}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+{seo.icons()}
+{seo.analytics(SITE)}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
@@ -213,7 +216,7 @@ def page_v2(SITE, PROJECTS, URL, version):
   <div class="foot-cols">
     <div><p class="label">Studio</p><p>{e(a['street'])}<br>{e(a['locality'])}, {e(a['city'])} {e(a['postcode'])}</p></div>
     <div><p class="label">Elsewhere</p><p><a href="{SITE['instagram']}" target="_blank" rel="noopener">Instagram</a><br><a href="{SITE['booking']}" target="_blank" rel="noopener">Book a call</a></p></div>
-    <div><p class="label">Explore</p><p><a href="/work">All work</a><br><a href="/">Classic site</a></p></div>
+    <div><p class="label">Explore</p><p><a href="/work">All work</a><br><a href="/">Home</a></p></div>
     <div><p class="label">London</p><p><span data-clock>—</span><br>© {date.today().year} BS.Haus</p></div>
   </div>
   <p class="wordmark" aria-label="BS.Haus">{wordmark}</p>
