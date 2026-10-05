@@ -430,3 +430,7 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 @keyframes logos-ltr { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 @media (prefers-reduced-motion: reduce) { .logos-track { animation: none; } }
 .doc > article > * { min-width: 0; }
+
+/* keep the last section clear of the fixed dock */
+.v3-on .doc { padding-bottom: calc(120px + env(safe-area-inset-bottom)); }
+@media (max-width: 760px) { .v3-on .doc { padding-bottom: calc(100px + env(safe-area-inset-bottom)); } }
