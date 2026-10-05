@@ -108,7 +108,7 @@ def page_v2(SITE, PROJECTS, URL, version):
         for h in SITE["help"]
     )
     logos = "".join(
-        f'<img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy">' for c in SITE["clients"]
+        f'<img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy" style="--s:{c.get("scale", 1)}">' for c in SITE["clients"]
     )
     services = "".join(
         f"""<li class="svc">

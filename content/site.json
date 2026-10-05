@@ -144,35 +144,43 @@
   "clients": [
     {
       "name": "IKEA",
-      "logo": "ikea.png"
+      "logo": "ikea.png",
+      "scale": 0.68
     },
     {
       "name": "Figma",
-      "logo": "figma.png"
+      "logo": "figma.png",
+      "scale": 1.121
     },
     {
       "name": "Decathlon",
-      "logo": "decathlon.png"
+      "logo": "decathlon.png",
+      "scale": 0.727
     },
     {
       "name": "Glaze",
-      "logo": "glaze.svg"
+      "logo": "glaze.svg",
+      "scale": 1.221
     },
     {
       "name": "Blockchain Capital",
-      "logo": "blockchain-capital.svg"
+      "logo": "blockchain-capital.svg",
+      "scale": 1.112
     },
     {
       "name": "LISA",
-      "logo": "lisa.svg"
+      "logo": "lisa.svg",
+      "scale": 1.323
     },
     {
       "name": "Zalando",
-      "logo": "zalando.png"
+      "logo": "zalando.png",
+      "scale": 0.843
     },
     {
       "name": "amika",
-      "logo": "amika.svg"
+      "logo": "amika.svg",
+      "scale": 0.817
     }
   ],
   "help": [

@@ -578,3 +578,6 @@ a.contact-row:hover .v { color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
+
+/* logos sized by proportion so each carries similar visual weight */
+.client img { max-height: none; height: calc(26px * var(--s, 1)); max-width: 80%; }

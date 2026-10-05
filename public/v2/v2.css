@@ -394,3 +394,5 @@ a:hover .arrow { transform: translateX(4px); }
 .has-gl .card-media { opacity: 0; transition: none; }
 .has-gl .card.is-leaving .card-media { opacity: 1; }
 .v2-on .stage-pin.is-dragging { cursor: grabbing; }
+
+.logos img { height: calc(22px * var(--s, 1)); }

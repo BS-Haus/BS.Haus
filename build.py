@@ -238,7 +238,7 @@ def process_grid():
 
 def clients_grid():
     cells = "".join(
-        f'<div class="client"><img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy"></div>'
+        f'<div class="client"><img src="/media/clients/{c["logo"]}" alt="{e(c["name"])}" loading="lazy" style="--s:{c.get("scale", 1)}"></div>'
         for c in SITE["clients"]
     )
     return f'<div class="clients reveal">{cells}</div>'

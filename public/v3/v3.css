@@ -631,3 +631,7 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 .boot-logo { width: min(190px, 42vw); }
 .boot-bar { width: 120px; }
 .v3-js .boot { gap: 26px; }
+
+/* logos sized by proportion so each carries similar visual weight */
+.logos-run img { height: calc(22px * var(--s, 1)); }
+.about-logos .logos-run img { height: calc(17px * var(--s, 1)); }
