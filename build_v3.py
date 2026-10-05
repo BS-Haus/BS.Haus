@@ -125,7 +125,7 @@ def page_v3(SITE, PROJECTS, URL, version):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="preload" as="image" href="/media/studio/studio.jpg">
+<link rel="preload" as="image" href="/media/studio/studio-video-poster.jpg">
 <link rel="stylesheet" href="/v3/v3.css?v={version}">
 <script>
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("v3-js");
@@ -139,7 +139,7 @@ def page_v3(SITE, PROJECTS, URL, version):
 </div>
 
 <div class="desktop" aria-hidden="true">
-  <div class="bg-layer is-on" data-bg="studio"><picture><source media="(max-width: 760px)" srcset="/media/studio/studio-portrait.jpg"><img src="/media/studio/studio.jpg" alt=""></picture></div>
+  <div class="bg-layer is-on" data-bg="studio"><video class="studio-video" src="/media/studio/studio.mp4" poster="/media/studio/studio-video-poster.jpg" autoplay muted loop playsinline preload="auto"></video></div>
 </div>
 <div class="desktop-dim" aria-hidden="true"></div>
 

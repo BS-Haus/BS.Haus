@@ -380,8 +380,9 @@
   const bar = $(".boot-bar i");
   let seen = false;
   try { seen = sessionStorage.getItem("bs-v3-seen") === "1"; sessionStorage.setItem("bs-v3-seen", "1"); } catch {}
-  const studioImg = $("img", layers.studio);
-  const imgReady = studioImg.complete ? Promise.resolve() : new Promise((r) => { studioImg.onload = r; studioImg.onerror = r; });
+  const studioVid = $("video", layers.studio);
+  const imgReady = studioVid.readyState >= 3 ? Promise.resolve() : new Promise((r) => { studioVid.addEventListener("canplay", r, { once: true }); studioVid.addEventListener("error", r, { once: true }); });
+  studioVid.play().catch(() => {});
   const ready = Promise.race([Promise.all([imgReady, document.fonts.ready]), new Promise((r) => setTimeout(r, 4000))]);
   const minBoot = new Promise((r) => gsap.to(bar, { width: "82%", duration: seen ? 0.35 : 1.3, ease: "power2.inOut", onComplete: r }));
 

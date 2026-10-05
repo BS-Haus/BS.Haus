@@ -434,3 +434,6 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 /* keep the last section clear of the fixed dock */
 .v3-on .doc { padding-bottom: calc(120px + env(safe-area-inset-bottom)); }
 @media (max-width: 760px) { .v3-on .doc { padding-bottom: calc(100px + env(safe-area-inset-bottom)); } }
+
+/* the studio film: portrait footage, framed on the desk */
+.studio-video { object-position: 50% 52%; }
