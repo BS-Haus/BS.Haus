@@ -270,6 +270,7 @@
     const next = list[(list.indexOf(p) + 1) % list.length];
     const facts = [["Client", p.client], ["Services", p.services], ["Industry", p.industry], [p.partner ? "With" : "Year", p.partner || p.year || "—"]];
     const media = [
+      ...(p.portrait ? [`<figure class="full portrait"><video src="${esc(p.portrait)}" muted loop playsinline autoplay preload="metadata"></video></figure>`] : []),
       ...(p.video ? [`<figure class="full"><video src="${esc(p.video)}" muted loop playsinline autoplay preload="metadata" poster="${esc(p.cover)}"></video></figure>`] : []),
       ...p.gallery.map((g) => g.video
         ? `<figure class="${g.full ? "full" : ""}"><video src="${esc(g.video)}" poster="${esc(g.poster)}" muted loop playsinline autoplay preload="metadata"></video></figure>`

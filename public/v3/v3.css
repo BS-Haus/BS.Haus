@@ -635,3 +635,6 @@ main { padding: calc(var(--menubar) + 24px) 16px 140px; }
 /* logos sized by proportion so each carries similar visual weight */
 .logos-run img { height: calc(22px * var(--s, 1)); }
 .about-logos .logos-run img { height: calc(17px * var(--s, 1)); }
+
+.doc-gallery figure.portrait { display: flex; justify-content: center; padding: 28px 12px; }
+.doc-gallery figure.portrait video { width: auto; height: min(70vh, 640px); max-width: 100%; border-radius: 14px; object-fit: contain; }

@@ -372,6 +372,11 @@ def page_project(p, nxt):
     facts_html = "".join(f'<div class="fact"><dt>{k}</dt><dd>{e(v)}</dd></div>' for k, v in facts)
 
     gallery = []
+    if p.get("hero_portrait"):
+        gallery.append(
+            f'<figure class="full portrait reveal"><video data-autoplay muted loop playsinline preload="metadata" '
+            f'aria-label="{e(p["title"])} case study film"><source src="{media_url(p["hero_portrait"])}" type="video/mp4"></video></figure>'
+        )
     if p.get("video"):
         gallery.append(
             f'<figure class="full reveal"><video data-autoplay muted loop playsinline preload="metadata" poster="{media_url(p["cover"])}" '

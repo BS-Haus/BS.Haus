@@ -581,3 +581,7 @@ a.contact-row:hover .v { color: var(--muted); }
 
 /* logos sized by proportion so each carries similar visual weight */
 .client img { max-height: none; height: calc(26px * var(--s, 1)); max-width: 80%; }
+
+/* Portrait (phone) film as a case hero — centred on a panel instead of cropped to the grid */
+.gallery figure.portrait { display: flex; justify-content: center; padding: clamp(20px, 4vw, 56px) 16px; }
+.gallery figure.portrait video { width: auto; height: min(78vh, 760px); max-width: 100%; border-radius: 18px; object-fit: contain; box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.35); }

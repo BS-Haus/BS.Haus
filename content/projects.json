@@ -343,7 +343,8 @@
         "src": "work/figma-slides-infinite-scroll/04.jpg",
         "full": true
       }
-    ]
+    ],
+    "video": "reel/infinite-scroll.mp4"
   },
   {
     "slug": "meadow",
@@ -633,6 +634,7 @@
       "work/emma-reicher/site-chi-kung.jpg",
       "work/emma-reicher/site-therapy-group.jpg",
       "work/emma-reicher/site-disarm.jpg"
-    ]
+    ],
+    "hero_portrait": "reel/emma-case-study.mp4"
   }
 ]

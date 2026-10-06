@@ -61,24 +61,36 @@ def image_size(path):
 
 
 def build_montage(SITE, PROJECTS):
-    """Screensaver sequence: every clip, plus stills that are clean landscape frames (16:10–16:9-ish)."""
-    clips = {c["slug"]: c for c in SITE.get("screensaver_clips", [])}
-    out = []
+    """Screensaver sequence: every clip, plus stills that are clean landscape frames (16:10–16:9-ish),
+    shuffled across projects so the reel reads as a mix rather than one project after another."""
+    per = []
     for p in PROJECTS:
         label = p["title"]
-        if p.get("video"):
-            out.append({"type": "video", "src": media(p["video"]), "label": label})
-        for extra in SITE.get("screensaver_clips", []):
-            if extra["slug"] == p["slug"]:
-                out.append({"type": "video", "src": extra["src"], "label": label})
+        vids = [media(p["video"])] if p.get("video") else []
+        vids += [c["src"] for c in SITE.get("screensaver_clips", []) if c["slug"] == p["slug"]]
         stills = [p["cover"]] + [g["src"] for g in p.get("gallery", []) if g.get("full") and g.get("src")]
         stills += p.get("screensaver", [])
-        kept = 0
+        imgs = []
         for src in dict.fromkeys(stills):
             w, h = image_size(media(src))
-            if h and 1.45 <= w / h <= 1.9 and kept < 3:
-                out.append({"type": "img", "src": media(src), "label": label})
-                kept += 1
+            if h and 1.45 <= w / h <= 1.9 and len(imgs) < 3:
+                imgs.append(media(src))
+        per.append((vids, imgs, label))
+    # Deal films and stills out across projects: films evenly spaced through the stills, and each pick
+    # avoids the most recently shown projects so no project plays twice in a row.
+    vq = [(i, v) for k in range(max(len(x[0]) for x in per)) for i, x in enumerate(per) if k < len(x[0]) for v in [x[0][k]]]
+    iq = [(i, v) for k in range(max(len(x[1]) for x in per)) for i, x in enumerate(per) if k < len(x[1]) for v in [x[1][k]]]
+    n_vid, total, out, recent = len(vq), len(vq) + len(iq), [], []
+    while vq or iq:
+        placed = n_vid - len(vq)
+        want_video = bool(vq) and (not iq or not out or placed + 0.5 < (len(out) + 1) * n_vid / total)
+        q = vq if want_video else (iq or vq)
+        pick = next((k for k, (pi, _) in enumerate(q) if pi not in recent[-3:]), None)
+        if pick is None:
+            pick = next((k for k, (pi, _) in enumerate(q) if not recent or pi != recent[-1]), 0)
+        pi, src = q.pop(pick)
+        out.append({"type": "video" if q is vq else "img", "src": src, "label": per[pi][2]})
+        recent.append(pi)
     return out
 
 
@@ -99,6 +111,7 @@ def project_data(p):
         "cover": media(p["cover"]),
         "backdrop": [media(x) for x in p.get("backdrop", [])],
         "video": media(p["video"]) if p.get("video") else "",
+        "portrait": media(p["hero_portrait"]) if p.get("hero_portrait") else "",
         "gallery": [({"video": media(g["video"]), "poster": media(g["poster"]), "full": g.get("full", False)} if g.get("video")
                      else {"src": media(g["src"]), "full": g.get("full", False)}) for g in p.get("gallery", [])],
     }
