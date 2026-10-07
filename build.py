@@ -659,6 +659,8 @@ def build():
     }
     pages["index.html"] = page_v3(SITE, PROJECTS, URL, BUILD_VERSION)
     pages["lab/index.html"] = page_v2(SITE, PROJECTS, URL, BUILD_VERSION)
+    # The original (v1) homepage, kept for reference — not indexed, canonical points at /.
+    pages["v1/index.html"] = page_home().replace('content="index, follow, max-image-preview:large"', 'content="noindex, follow"', 1)
     for i, p in enumerate(PROJECTS):
         pages[f"work/{p['slug']}.html"] = page_project(p, PROJECTS[(i + 1) % len(PROJECTS)])
     for path, text in pages.items():
