@@ -1,5 +1,69 @@
 [
   {
+    "slug": "erria",
+    "title": "Erria",
+    "short_title": "Erria",
+    "client": "Erria",
+    "industry": "E-commerce, Technology, Art",
+    "services": "0→1 Brand & Product Design",
+    "tags": [
+      "Brand",
+      "Product",
+      "E-commerce"
+    ],
+    "summary": "A marketplace connecting buyers directly with independent makers and designers.",
+    "featured": true,
+    "video": "reel/erria.mp4",
+    "cover": "work/erria/cover.jpg",
+    "cover_alt": "The Erria wordmark in maroon on yellow",
+    "intro": [
+      "Erria is a curated marketplace connecting buyers directly with high-end independent makers and designers — with more than 1,500 designers onboard.",
+      "As it prepared to scale, Erria needed a sharper brand, a clear story for its revenue model (buyer and seller subscriptions plus a sliding commission) and a better way to discover work — search only filtered by location."
+    ],
+    "outcomes": [
+      "We led a 2.0 brand tuning: a refreshed brand system and modular identity that works across social, storefront and packaging.",
+      "We designed Erria 2.0 — a new e-commerce marketplace with richer search and map-led discovery — plus a waitlist landing page to articulate the mission, handing the MVP design over in June 2025."
+    ],
+    "gallery": [
+      {
+        "src": "work/erria/02.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/03.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/04.jpg",
+        "full": true
+      },
+      {
+        "src": "work/erria/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/06.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/07.jpg",
+        "full": true
+      },
+      {
+        "src": "work/erria/08.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/09.jpg",
+        "full": false
+      },
+      {
+        "src": "work/erria/10.jpg",
+        "full": true
+      }
+    ]
+  },
+  {
     "slug": "lisa-foundation",
     "title": "LISA Foundation",
     "short_title": "LISA",
@@ -77,67 +141,197 @@
     ]
   },
   {
-    "slug": "erria",
-    "title": "Erria",
-    "short_title": "Erria",
-    "client": "Erria",
-    "industry": "E-commerce, Technology, Art",
-    "services": "0→1 Brand & Product Design",
+    "slug": "amika-connect",
+    "title": "amika: connect",
+    "short_title": "amika",
+    "client": "amika",
+    "industry": "Beauty & Haircare",
+    "services": "Event Identity, Stage & LED Environment, Presentation System, Merch, Brand Playbook",
     "tags": [
-      "Brand",
-      "Product",
-      "E-commerce"
+      "Event",
+      "Identity",
+      "Merch"
     ],
-    "summary": "A marketplace connecting buyers directly with independent makers and designers.",
-    "featured": true,
-    "video": "reel/erria.mp4",
-    "cover": "work/erria/cover.jpg",
-    "cover_alt": "The Erria wordmark in maroon on yellow",
+    "summary": "Game Time at the House of amika — the identity and world for amika’s annual conference.",
+    "featured": false,
+    "video": "reel/amika.mp4",
+    "cover": "work/amika-connect/cover.jpg",
+    "cover_alt": "The amika:connect lockup on the main-stage LED wall with the GAMEDAY ticker",
     "intro": [
-      "Erria is a curated marketplace connecting buyers directly with high-end independent makers and designers — with more than 1,500 designers onboard.",
-      "As it prepared to scale, Erria needed a sharper brand, a clear story for its revenue model (buyer and seller subscriptions plus a sliding commission) and a better way to discover work — search only filtered by location."
+      "amika:connect is amika’s first amika-only company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
+      "For February 2026 in San Antonio, the theme was “Game Time at the House of amika” — a Super Bowl-inspired signal that amika now plays at the top level."
     ],
     "outcomes": [
-      "We led a 2.0 brand tuning: a refreshed brand system and modular identity that works across social, storefront and packaging.",
-      "We designed Erria 2.0 — a new e-commerce marketplace with richer search and map-led discovery — plus a waitlist landing page to articulate the mission, handing the MVP design over in June 2025."
+      "We built the whole conference world: a flexible amika:connect lockup, gradient key visuals, dot-matrix GAMEDAY typography, stage and LED environments, idle-screen states and lobby LED loops.",
+      "The system carried through two mainstage presentation decks, name badges and merch — jerseys numbered with each employee’s start year, Accolades varsity jackets and custom patches — all documented in a brand playbook."
     ],
     "gallery": [
       {
-        "src": "work/erria/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/erria/03.jpg",
-        "full": false
-      },
-      {
-        "src": "work/erria/04.jpg",
+        "video": "clips/amika-connect-1.mp4",
+        "poster": "clips/amika-connect-1.jpg",
         "full": true
       },
       {
-        "src": "work/erria/05.jpg",
+        "src": "work/amika-connect/02.jpg",
         "full": false
       },
       {
-        "src": "work/erria/06.jpg",
+        "src": "work/amika-connect/03.jpg",
         "full": false
       },
       {
-        "src": "work/erria/07.jpg",
+        "src": "work/amika-connect/04.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/06.jpg",
         "full": true
       },
       {
-        "src": "work/erria/08.jpg",
+        "src": "work/amika-connect/07.jpg",
         "full": false
       },
       {
-        "src": "work/erria/09.jpg",
+        "src": "work/amika-connect/08.jpg",
         "full": false
       },
       {
-        "src": "work/erria/10.jpg",
+        "src": "work/amika-connect/09.jpg",
+        "full": true
+      },
+      {
+        "src": "work/amika-connect/10.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/11.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/12.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/13.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/14.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/15.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/16.jpg",
+        "full": false
+      },
+      {
+        "src": "work/amika-connect/17.jpg",
+        "full": false
+      }
+    ],
+    "year": "2026",
+    "screensaver": [
+      "work/amika-connect/cover.jpg",
+      "work/amika-connect/02.jpg",
+      "work/amika-connect/09.jpg",
+      "work/amika-connect/15.jpg"
+    ]
+  },
+  {
+    "slug": "meadow",
+    "title": "Meadow",
+    "short_title": "Meadow",
+    "client": "Meadow",
+    "year": "2025",
+    "industry": "Wellness, Consumer",
+    "services": "Brand Identity, Symbol System, Art Direction, Packaging, Social",
+    "tags": [
+      "Identity",
+      "Packaging",
+      "Art direction"
+    ],
+    "featured": false,
+    "summary": "A living system — a calm, design-led wellness brand built around Micro and Macro.",
+    "cover": "work/meadow/cover.jpg",
+    "cover_alt": "“A living system” — a fisheye flower field with the Meadow symbol at its centre",
+    "intro": [
+      "Meadow is a Lisbon-based brand bringing calm, science-informed microdosing to people across Europe, built around two kits: Micro, for focus and clarity, and Macro, for perspective and reflection.",
+      "The brief was to stand apart from a category that feels either spiritual or synthetic — to be a gentle guide, not a guru — for design-minded professionals aged 25–40, with the ambition of becoming Europe’s most trusted name in the space."
+    ],
+    "outcomes": [
+      "We built the identity around a living system: calm, open and simple above ground, with a vast network of connection and growth below — expressed through the wordmark, symbol and a fisheye photographic world.",
+      "The system runs through the pill packs and compact, sleeves and embossed boxes, kraft mailers, field notes, the app and social, giving Meadow a quiet confidence from first glance to the product in hand."
+    ],
+    "gallery": [
+      {
+        "src": "work/meadow/02.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/14.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/03.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/04.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/05.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/06.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/07.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/08.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/09.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/10.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/11.jpg",
+        "full": false
+      },
+      {
+        "src": "work/meadow/12.jpg",
+        "full": true
+      },
+      {
+        "src": "work/meadow/13.jpg",
         "full": true
       }
+    ],
+    "screensaver": [
+      "work/meadow/02.jpg",
+      "work/meadow/07.jpg",
+      "work/meadow/cover.jpg"
+    ],
+    "backdrop": [
+      "work/meadow/02.jpg",
+      "work/meadow/07.jpg",
+      "work/meadow/cover.jpg"
     ]
   },
   {
@@ -303,244 +497,6 @@
     ]
   },
   {
-    "slug": "figma-slides-infinite-scroll",
-    "title": "Figma Slides × BS — The Infinite Scroll",
-    "short_title": "Infinite Scroll",
-    "client": "Figma",
-    "industry": "Technology, Software, Art",
-    "services": "Presentation Design, Template Design, Collaboration",
-    "tags": [
-      "Presentation",
-      "Template",
-      "Community"
-    ],
-    "summary": "A community template for the launch of Figma Slides.",
-    "featured": true,
-    "cover": "work/figma-slides-infinite-scroll/cover.jpg",
-    "cover_alt": "The Infinite Scroll title slide — embossed parchment between chrome scroll handles",
-    "intro": [
-      "For the launch of Figma Slides, BS were asked to collaborate and launch a new template for the community, showcasing the power of the tool and its potential applications."
-    ],
-    "outcomes": [
-      "We created The Infinite Scroll — an ancient-manuscript inspired template with embossed parchment, chrome scroll handles and built-in text effects.",
-      "Slides push seamlessly into one another, so a deck becomes a single continuous story: add as many slides as you need, end with your logo or a short message — or keep going, forever."
-    ],
-    "gallery": [
-      {
-        "video": "clips/figma-slides-infinite-scroll-1.mp4",
-        "poster": "clips/figma-slides-infinite-scroll-1.jpg",
-        "full": true
-      },
-      {
-        "src": "work/figma-slides-infinite-scroll/01.jpg",
-        "full": true
-      },
-      {
-        "src": "work/figma-slides-infinite-scroll/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/figma-slides-infinite-scroll/04.jpg",
-        "full": true
-      }
-    ],
-    "video": "reel/infinite-scroll.mp4"
-  },
-  {
-    "slug": "meadow",
-    "title": "Meadow",
-    "short_title": "Meadow",
-    "client": "Meadow",
-    "year": "2025",
-    "industry": "Wellness, Consumer",
-    "services": "Brand Identity, Symbol System, Art Direction, Packaging, Social",
-    "tags": [
-      "Identity",
-      "Packaging",
-      "Art direction"
-    ],
-    "featured": false,
-    "summary": "A living system — a calm, design-led wellness brand built around Micro and Macro.",
-    "cover": "work/meadow/cover.jpg",
-    "cover_alt": "“A living system” — a fisheye flower field with the Meadow symbol at its centre",
-    "intro": [
-      "Meadow is a Lisbon-based brand bringing calm, science-informed microdosing to people across Europe, built around two kits: Micro, for focus and clarity, and Macro, for perspective and reflection.",
-      "The brief was to stand apart from a category that feels either spiritual or synthetic — to be a gentle guide, not a guru — for design-minded professionals aged 25–40, with the ambition of becoming Europe’s most trusted name in the space."
-    ],
-    "outcomes": [
-      "We built the identity around a living system: calm, open and simple above ground, with a vast network of connection and growth below — expressed through the wordmark, symbol and a fisheye photographic world.",
-      "The system runs through the pill packs and compact, sleeves and embossed boxes, kraft mailers, field notes, the app and social, giving Meadow a quiet confidence from first glance to the product in hand."
-    ],
-    "gallery": [
-      {
-        "src": "work/meadow/02.jpg",
-        "full": true
-      },
-      {
-        "src": "work/meadow/14.jpg",
-        "full": true
-      },
-      {
-        "src": "work/meadow/03.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/04.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/05.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/06.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/07.jpg",
-        "full": true
-      },
-      {
-        "src": "work/meadow/08.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/09.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/10.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/11.jpg",
-        "full": false
-      },
-      {
-        "src": "work/meadow/12.jpg",
-        "full": true
-      },
-      {
-        "src": "work/meadow/13.jpg",
-        "full": true
-      }
-    ],
-    "screensaver": [
-      "work/meadow/02.jpg",
-      "work/meadow/07.jpg",
-      "work/meadow/cover.jpg"
-    ],
-    "backdrop": [
-      "work/meadow/02.jpg",
-      "work/meadow/07.jpg",
-      "work/meadow/cover.jpg"
-    ]
-  },
-  {
-    "slug": "amika-connect",
-    "title": "amika: connect",
-    "short_title": "amika",
-    "client": "amika",
-    "industry": "Beauty & Haircare",
-    "services": "Event Identity, Stage & LED Environment, Presentation System, Merch, Brand Playbook",
-    "tags": [
-      "Event",
-      "Identity",
-      "Merch"
-    ],
-    "summary": "Game Time at the House of amika — the identity and world for amika’s annual conference.",
-    "featured": false,
-    "video": "reel/amika.mp4",
-    "cover": "work/amika-connect/cover.jpg",
-    "cover_alt": "The amika:connect lockup on the main-stage LED wall with the GAMEDAY ticker",
-    "intro": [
-      "amika:connect is amika’s first amika-only company conference — a moment to come together, reflect, share ideas, celebrate progress and align around what comes next.",
-      "For February 2026 in San Antonio, the theme was “Game Time at the House of amika” — a Super Bowl-inspired signal that amika now plays at the top level."
-    ],
-    "outcomes": [
-      "We built the whole conference world: a flexible amika:connect lockup, gradient key visuals, dot-matrix GAMEDAY typography, stage and LED environments, idle-screen states and lobby LED loops.",
-      "The system carried through two mainstage presentation decks, name badges and merch — jerseys numbered with each employee’s start year, Accolades varsity jackets and custom patches — all documented in a brand playbook."
-    ],
-    "gallery": [
-      {
-        "video": "clips/amika-connect-1.mp4",
-        "poster": "clips/amika-connect-1.jpg",
-        "full": true
-      },
-      {
-        "src": "work/amika-connect/02.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/03.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/04.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/05.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/06.jpg",
-        "full": true
-      },
-      {
-        "src": "work/amika-connect/07.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/08.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/09.jpg",
-        "full": true
-      },
-      {
-        "src": "work/amika-connect/10.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/11.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/12.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/13.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/14.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/15.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/16.jpg",
-        "full": false
-      },
-      {
-        "src": "work/amika-connect/17.jpg",
-        "full": false
-      }
-    ],
-    "year": "2026",
-    "screensaver": [
-      "work/amika-connect/cover.jpg",
-      "work/amika-connect/02.jpg",
-      "work/amika-connect/09.jpg",
-      "work/amika-connect/15.jpg"
-    ]
-  },
-  {
     "slug": "emma-reicher",
     "title": "Emma Reicher",
     "short_title": "Emma Reicher",
@@ -636,5 +592,49 @@
       "work/emma-reicher/site-disarm.jpg"
     ],
     "hero_portrait": "reel/emma-case-study.mp4"
+  },
+  {
+    "slug": "figma-slides-infinite-scroll",
+    "title": "Figma Slides × BS — The Infinite Scroll",
+    "short_title": "Infinite Scroll",
+    "client": "Figma",
+    "industry": "Technology, Software, Art",
+    "services": "Presentation Design, Template Design, Collaboration",
+    "tags": [
+      "Presentation",
+      "Template",
+      "Community"
+    ],
+    "summary": "A community template for the launch of Figma Slides.",
+    "featured": true,
+    "cover": "work/figma-slides-infinite-scroll/cover.jpg",
+    "cover_alt": "The Infinite Scroll title slide — embossed parchment between chrome scroll handles",
+    "intro": [
+      "For the launch of Figma Slides, BS were asked to collaborate and launch a new template for the community, showcasing the power of the tool and its potential applications."
+    ],
+    "outcomes": [
+      "We created The Infinite Scroll — an ancient-manuscript inspired template with embossed parchment, chrome scroll handles and built-in text effects.",
+      "Slides push seamlessly into one another, so a deck becomes a single continuous story: add as many slides as you need, end with your logo or a short message — or keep going, forever."
+    ],
+    "gallery": [
+      {
+        "video": "clips/figma-slides-infinite-scroll-1.mp4",
+        "poster": "clips/figma-slides-infinite-scroll-1.jpg",
+        "full": true
+      },
+      {
+        "src": "work/figma-slides-infinite-scroll/01.jpg",
+        "full": true
+      },
+      {
+        "src": "work/figma-slides-infinite-scroll/02.jpg",
+        "full": false
+      },
+      {
+        "src": "work/figma-slides-infinite-scroll/04.jpg",
+        "full": true
+      }
+    ],
+    "video": "reel/infinite-scroll.mp4"
   }
 ]

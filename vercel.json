@@ -39,6 +39,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.bs.haus"
+        }
+      ],
+      "destination": "https://bs.haus/:path*",
+      "permanent": true
+    },
+    {
       "source": "/bs-studio",
       "destination": "/studio",
       "permanent": true
